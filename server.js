@@ -24,17 +24,21 @@ app.post('/webhook', (req, res) => {
     console.log(req.body.queryResult.parameters.any);
   
   let name = req.body.queryResult.parameters.any
+  
   let device = req.body.queryResult.parameters["device"]
+  
   let country = req.body.queryResult.languageCode
+  
   
   console.log(name)
   console.log(req.body.queryResult.languageCode)
   console.log(device)
+
   
   
   if (country == 'en-gb' || country == 'en-us' || country == 'en-au' || country == 'en-ca' || country == 'en-in'){
     console.log('Country English detected')
-  if (device == "PC"){  
+  if (device == "PC" || device == "Pc" || device == "pc" || device == "pC"){  
     console.log('English PC detected')
    
     //EN PC stats
@@ -72,7 +76,7 @@ app.post('/webhook', (req, res) => {
               }
        
       })}
-    else if (device == "PS4"|| device == "Playstation"){
+    else if (device == "PS4" ||device == "PLAYSTATION" ||device == "Playstation" ||device == "playstation" ||device == "Ps4" ||device == "ps4"){
       
       console.log('English ps4 detected')
      
@@ -112,11 +116,56 @@ app.post('/webhook', (req, res) => {
        
       })
     }
+    
+        else if (device == "Xbox" ||device == "XBOX" ||device == "XB1" ||device == "Xbox 1" ||device == "Xbox one"){
+      
+      console.log('NL Xbox detected')
+     
+      //EN playstation stats
+      
+      var options = {
+      method: "GET",
+      // player name is robi62
+      url: 'https://fortnite.y3n.co/v2/player/' + name,
+      headers: {
+        'User-Agent': 'nodejs request',
+        'X-Key': "RkwDRSKWwv3fWXp7Sfwk"
+      }
+    }
+  
+      request(options, (error, response, body) => {
+      if (!error && response.statusCode == 404)
+      {
+        var statz = JSON.parse(body);
+        var object = JSON.parse(body);
+        console.log('404')
+        res.status(200).json({
+       fulfillmentText: "Woops, This player isn't known yet😞",
+          source: 'Mr. Fortnite backend'});
+        
+      }
+        
+        
+        
+        else { console.log('No 404');
+              var statz = JSON.parse(body);
+              
+              
+          res.status(200).json({
+         fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + statz.br.stats.xb1.all.kills + "\n K/D: " + statz.br.stats.xb1.all.kpd + "\n Wins: " + statz.br.stats.xb1.all.wins + "\n Matchesplayed: " + statz.br.stats.xb1.all.matchesPlayed,
+          source: "Mr. Fortnite backend"
+          });
+              }
+       
+      })
+    }
+    
+    
   }
   
   if (country == 'nl'){
       console.log('Country NL detected')
-  if (device == "PC"){  
+  if (device == "PC" || device == "Pc" || device == "pc" || device == "pC"){  
     console.log('NL PC detected')
    
     //NL PC stats
@@ -154,7 +203,7 @@ app.post('/webhook', (req, res) => {
               }
        
       })}
-    else if (device == "PS4"|| device == "Playstation"){
+    else if (device == "PS4" ||device == "PLAYSTATION" ||device == "Playstation" ||device == "playstation" ||device == "Ps4" ||device == "ps4"){
       
       console.log('NL ps4 detected')
      
@@ -188,6 +237,47 @@ app.post('/webhook', (req, res) => {
               
           res.status(200).json({
          fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + statz.br.stats.ps4.all.kills + "\n K/D: " + statz.br.stats.ps4.all.kpd + "\n Wins: " + statz.br.stats.ps4.all.wins + "\n Matchesplayed: " + statz.br.stats.ps4.all.matchesPlayed,
+          source: "Mr. Fortnite backend"
+          });
+              }
+       
+      })
+    }
+    
+    else if (device == "Xbox" ||device == "XBOX" ||device == "XB1" ||device == "Xbox 1" ||device == "Xbox one"){
+      
+      console.log('NL Xbox detected')
+     
+      //EN playstation stats
+      
+      var options = {
+      method: "GET",
+      // player name is robi62
+      url: 'https://fortnite.y3n.co/v2/player/' + name,
+      headers: {
+        'User-Agent': 'nodejs request',
+        'X-Key': "RkwDRSKWwv3fWXp7Sfwk"
+      }
+    }
+  
+      request(options, (error, response, body) => {
+      if (!error && response.statusCode == 404)
+      {
+        var statz = JSON.parse(body);
+        var object = JSON.parse(body);
+        console.log('404')
+        res.status(200).json({
+       fulfillmentText: "Woops, Deze speler is nog niet bekend😞",
+          source: 'Mr. Fortnite backend'});
+        
+      }
+        
+        else { console.log('No 404');
+              var statz = JSON.parse(body);
+              
+              
+          res.status(200).json({
+         fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + statz.br.stats.xb1.all.kills + "\n K/D: " + statz.br.stats.xb1.all.kpd + "\n Wins: " + statz.br.stats.xb1.all.wins + "\n Matchesplayed: " + statz.br.stats.xb1.all.matchesPlayed,
           source: "Mr. Fortnite backend"
           });
               }

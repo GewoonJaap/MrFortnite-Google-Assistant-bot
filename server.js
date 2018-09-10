@@ -23,15 +23,17 @@ app.post('/webhook', (req, res) => {
   
     console.log(req.body.queryResult.parameters["device"]);
     console.log(req.body.queryResult.parameters.any);
+    let country = req.body.queryResult.languageCode;
+  var finalA = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
   console.log(req.body.queryResult.intent.displayName);
   
-  if(req.body.queryResult.intent.displayName = stats){
+  if(req.body.queryResult.intent.displayName = "stats"){
   
   let name = req.body.queryResult.parameters.any
   
   let device = req.body.queryResult.parameters["device"]
   
-  let country = req.body.queryResult.languageCode
+
   
   
   console.log(name)
@@ -327,6 +329,8 @@ app.post('/webhook', (req, res) => {
        fulfillmentText: "Woops, stats not found😞",
          source: "Mr. Fortnite backend"}); */
   }
+  
+  
 });
 
 

@@ -20,8 +20,12 @@ app.get('/', (req, res) => {
 /* Handling all messenges */
 app.post('/webhook', (req, res) => {
     console.log(req.body);
+  
     console.log(req.body.queryResult.parameters["device"]);
     console.log(req.body.queryResult.parameters.any);
+  console.log(req.body.queryResult.intent.displayName);
+  
+  if(req.body.queryResult.intent.displayName = stats){
   
   let name = req.body.queryResult.parameters.any
   
@@ -60,7 +64,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, This user isn't known yet😞",
+       fulfillmentText: "Woops, This user isn't known yet😞 \n Something else i can do?",
           source: 'Mr. Fortnite backend'});
         
       }
@@ -68,9 +72,13 @@ app.post('/webhook', (req, res) => {
         else { console.log('No 404');
               var stats = JSON.parse(body);
               
+              if(!stats.br.stats.pc) return res.status(200).json({
+       fulfillmentText: "Woops, This player doesn't play on this device😞 \n Something else i can do?",
+          source: 'Mr. Fortnite backend'});
+              
               
           res.status(200).json({
-          fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + stats.br.stats.pc.all.kills + "\n K/D: " + stats.br.stats.pc.all.kpd + "\n Wins: " + stats.br.stats.pc.all.wins + "\n Matchesplayed: " + stats.br.stats.pc.all.matchesPlayed,
+          fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + stats.br.stats.pc.all.kills + "\n K/D: " + stats.br.stats.pc.all.kpd + "\n Wins: " + stats.br.stats.pc.all.wins + "\n Matchesplayed: " + stats.br.stats.pc.all.matchesPlayed + "\n Something else i can do?",
           source: "Mr. Fortnite backend"
           });
               }
@@ -99,7 +107,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, This user isn't known yet😞",
+       fulfillmentText: "Woops, This user isn't known yet😞 \n Something else i can do?",
           source: 'Mr. Fortnite backend'});
         
       }
@@ -107,9 +115,13 @@ app.post('/webhook', (req, res) => {
         else { console.log('No 404');
               var statz = JSON.parse(body);
               
+              if(!statz.br.stats.ps4) return res.status(200).json({
+       fulfillmentText: "Woops, This player doesn't play on this device😞 \n Something else i can do?",
+          source: 'Mr. Fortnite backend'});
+              
               
           res.status(200).json({
-         fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + statz.br.stats.ps4.all.kills + "\n K/D: " + statz.br.stats.ps4.all.kpd + "\n Wins: " + statz.br.stats.ps4.all.wins + "\n Matchesplayed: " + statz.br.stats.ps4.all.matchesPlayed,
+         fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + statz.br.stats.ps4.all.kills + "\n K/D: " + statz.br.stats.ps4.all.kpd + "\n Wins: " + statz.br.stats.ps4.all.wins + "\n Matchesplayed: " + statz.br.stats.ps4.all.matchesPlayed + " \n Something else i can do?",
           source: "Mr. Fortnite backend"
           });
               }
@@ -140,7 +152,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, This player isn't known yet😞",
+       fulfillmentText: "Woops, This player isn't known yet😞 \n Something else i can do?",
           source: 'Mr. Fortnite backend'});
         
       }
@@ -150,9 +162,13 @@ app.post('/webhook', (req, res) => {
         else { console.log('No 404');
               var statz = JSON.parse(body);
               
+              if(!statz.br.stats.xb1) return res.status(200).json({
+       fulfillmentText: "Woops, This player doesn't play on this device😞 \n Something else i can do?",
+          source: 'Mr. Fortnite backend'});
+              
               
           res.status(200).json({
-         fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + statz.br.stats.xb1.all.kills + "\n K/D: " + statz.br.stats.xb1.all.kpd + "\n Wins: " + statz.br.stats.xb1.all.wins + "\n Matchesplayed: " + statz.br.stats.xb1.all.matchesPlayed,
+         fulfillmentText: " Here are the stats for: " + name +"\n Kills: " + statz.br.stats.xb1.all.kills + "\n K/D: " + statz.br.stats.xb1.all.kpd + "\n Wins: " + statz.br.stats.xb1.all.wins + "\n Matchesplayed: " + statz.br.stats.xb1.all.matchesPlayed + " \n Something else i can do?",
           source: "Mr. Fortnite backend"
           });
               }
@@ -187,7 +203,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, Deze speler is nog niet bekend😞",
+       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
           source: 'Mr. Fortnite backend'});
         
       }
@@ -195,9 +211,13 @@ app.post('/webhook', (req, res) => {
         else { console.log('No 404');
               var stats = JSON.parse(body);
               
+              if(!stats.br.stats.pc) return res.status(200).json({
+       fulfillmentText: "Woops, Deze speler speelt niet op dit platform😞 \n Is er iets anders wat ik voor je kan doen?",
+          source: 'Mr. Fortnite backend'});
+              
               
           res.status(200).json({
-          fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + stats.br.stats.pc.all.kills + "\n K/D: " + stats.br.stats.pc.all.kpd + "\n Wins: " + stats.br.stats.pc.all.wins + "\n Matchesplayed: " + stats.br.stats.pc.all.matchesPlayed,
+          fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + stats.br.stats.pc.all.kills + "\n K/D: " + stats.br.stats.pc.all.kpd + "\n Wins: " + stats.br.stats.pc.all.wins + "\n Matchesplayed: " + stats.br.stats.pc.all.matchesPlayed + " \n Is er iets anders wat ik voor je kan doen?",
           source: "Mr. Fortnite backend"
           });
               }
@@ -226,7 +246,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, Deze speler is nog niet bekend😞",
+       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
           source: 'Mr. Fortnite backend'});
         
       }
@@ -235,8 +255,13 @@ app.post('/webhook', (req, res) => {
               var statz = JSON.parse(body);
               
               
+                         if(!statz.br.stats.ps4) return res.status(200).json({
+       fulfillmentText: "Woops, Deze speler speelt niet op dit platform😞 \n Is er iets anders wat ik voor je kan doen?",
+          source: 'Mr. Fortnite backend'});
+              
+              
           res.status(200).json({
-         fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + statz.br.stats.ps4.all.kills + "\n K/D: " + statz.br.stats.ps4.all.kpd + "\n Wins: " + statz.br.stats.ps4.all.wins + "\n Matchesplayed: " + statz.br.stats.ps4.all.matchesPlayed,
+         fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + statz.br.stats.ps4.all.kills + "\n K/D: " + statz.br.stats.ps4.all.kpd + "\n Wins: " + statz.br.stats.ps4.all.wins + "\n Matchesplayed: " + statz.br.stats.ps4.all.matchesPlayed + " \n Is er iets anders wat ik voor je kan doen?",
           source: "Mr. Fortnite backend"
           });
               }
@@ -267,7 +292,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, Deze speler is nog niet bekend😞",
+       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
           source: 'Mr. Fortnite backend'});
         
       }
@@ -276,8 +301,13 @@ app.post('/webhook', (req, res) => {
               var statz = JSON.parse(body);
               
               
+                         if(!statz.br.stats.xb1) return res.status(200).json({
+       fulfillmentText: "Woops, Deze speler speelt niet op dit platform😞 \n Is er iets anders wat ik voor je kan doen?",
+          source: 'Mr. Fortnite backend'});
+              
+              
           res.status(200).json({
-         fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + statz.br.stats.xb1.all.kills + "\n K/D: " + statz.br.stats.xb1.all.kpd + "\n Wins: " + statz.br.stats.xb1.all.wins + "\n Matchesplayed: " + statz.br.stats.xb1.all.matchesPlayed,
+         fulfillmentText: " Hier zijn de stats voor: " + name +"\n Kills: " + statz.br.stats.xb1.all.kills + "\n K/D: " + statz.br.stats.xb1.all.kpd + "\n Wins: " + statz.br.stats.xb1.all.wins + "\n Matchesplayed: " + statz.br.stats.xb1.all.matchesPlayed + " \n Is er iets anders wat ik voor je kan doen?",
           source: "Mr. Fortnite backend"
           });
               }
@@ -296,7 +326,9 @@ app.post('/webhook', (req, res) => {
          // fulfillmentText: "Here are the fortnite stats for:" + req.body.queryResult.parameters.any +'\nKills:'+ stats.br.stats.pc.all.kills +'\nK/D' + stats.br.stats.pc.all.kpd + '\nMatches played:' + stats.br.stats.pc.all.matchesPlayed + '\nWins:' + stats.br.stats.pc.all.wins,
        fulfillmentText: "Woops, stats not found😞",
          source: "Mr. Fortnite backend"}); */
+  }
 });
+
 
 
 const server = app.listen(process.env.PORT || 5000, () => {

@@ -1151,6 +1151,144 @@ app.post('/webhook', (req, res) => {
   
   }
   
+  
+  if(intent == "news"){
+    
+          //EN playstation stats
+      
+            var options = {
+      method: "GET",
+      // player name is robi62
+      url: 'https://fortnitecontent-website-prod07.ol.epicgames.com/content/api/pages/fortnite-game',
+      headers: {
+        'User-Agent': 'nodejs request'
+      }
+    }
+  
+      request(options, (error, response, body) => {
+      if (!error && response.statusCode == 404)
+      {
+        var statz = JSON.parse(body);
+        var object = JSON.parse(body);
+        console.log('404')
+        res.status(200).json({
+       fulfillmentText: "Woops, er ging iets fout!",
+          source: 'Mr. Fortnite backend'});
+        
+      }
+        
+        else { console.log('No 404');
+              var statz = JSON.parse(body);
+            
+              
+              
+          var stats = JSON.parse(body);  
+              var items = stats.battleroyalenews.news.messages.length
+              console.log(items)
+              
+              if(items == 4){
+          res.status(200).json({
+"payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": "Here is the latest news"
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[0].title
+                },
+                "description": stats.battleroyalenews.news.messages[0].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[0].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[0].body
+                },
+                "title": "1. " + stats.battleroyalenews.news.messages[0].title
+              },
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[1].title
+                },
+                "description": stats.battleroyalenews.news.messages[1].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[1].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[1].body
+                },
+                "title": stats.battleroyalenews.news.messages[1].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[2].title
+                },
+                "description": stats.battleroyalenews.news.messages[2].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[2].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[2].body
+                },
+                "title": stats.battleroyalenews.news.messages[2].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[3].title
+                },
+                "description": stats.battleroyalenews.news.messages[3].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[3].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[3].body
+                },
+                "title": stats.battleroyalenews.news.messages[3].title
+              }
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+            
+          //
+          });
+                }
+              
+              else if (items == 3){
+              
+              
+              }
+              
+              else if(items == 2){
+              
+              }
+              
+              
+              else if (items == 5){
+              
+              }
+              
+              
+              else if(items == 6){
+              
+              }
+              
+              }
+       
+      })
+    
+
+                                    }
+  
                
   
 });

@@ -34,11 +34,13 @@ app.post('/webhook', (req, res) => {
   console.log(req.body.queryResult.intent.displayName);
   let intent = req.body.queryResult.intent.displayName;
   
+  
   if(req.body.queryResult.intent.displayName = "stats"){
   
   let name = req.body.queryResult.parameters.any
   
   let device = req.body.queryResult.parameters["device"]
+  
   
 
   
@@ -460,6 +462,19 @@ app.post('/webhook', (req, res) => {
   
   
   if(intent == 'shop'){
+    var TenSkins;
+    var Skins;
+    
+    if (country == 'nl'){ 
+      Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
+    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund.) \n Is er nog iets anders wat ik voor je kan doen?"
+    }
+    
+    else {
+      Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
+      TenSkins = "Here are the first 10 items of the Fortnite shop.(10 is the maximum Google supports at the moment.) \n Is there anything else I can do?"
+    }
+      
               var options = {
       method: "GET",
       url: 'https://api.fortnitetracker.com/v1/store',
@@ -500,7 +515,7 @@ app.post('/webhook', (req, res) => {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "Here are the first 10 items of the Fortnite shop (10 is the maximum Google supports at the moment ;/ )!"
+              "textToSpeech": TenSkins
             }
           }
         ]
@@ -647,7 +662,7 @@ app.post('/webhook', (req, res) => {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "Here are the first 10 items of the Fortnite shop (10 is the maximum Google supports at the moment ;/ )!"
+              "textToSpeech": Skins
             }
           }
         ]
@@ -787,7 +802,7 @@ app.post('/webhook', (req, res) => {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "Here are the first 10 items of the Fortnite shop (10 is the maximum Google supports at the moment ;/ )!"
+              "textToSpeech": Skins
             }
           }
         ]
@@ -914,7 +929,7 @@ app.post('/webhook', (req, res) => {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "Here are the first 10 items of the Fortnite shop (10 is the maximum Google supports at the moment ;/ )!"
+              "textToSpeech": Skins
             }
           }
         ]
@@ -1031,7 +1046,7 @@ app.post('/webhook', (req, res) => {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "Here are the first 10 items of the Fortnite shop (10 is the maximum Google supports at the moment ;/ )!"
+              "textToSpeech": Skins
             }
           }
         ]

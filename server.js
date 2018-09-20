@@ -89,8 +89,6 @@ app.post('/webhook', (req, res) => {
           source: 'Mr. Fortnite backend'}); */
               var stats = JSON.parse(body);
         
-              console.log("Top 3"  +stats.lifeTimeStats[1].value);
-        console.log("Top 6 " +stats.stats.p2.top1.value);
        /* Lifetime Solo Wins - {{ states.sensor.fortnite_stats.attributes.stats.p2.top1.value }}
               Lifetime Solo Top 3 - {{ states.sensor.fortnite_stats.attributes.stats.p2.top3.value }}
               Lifetime Solo Top 10 - {{ states.sensor.fortnite_stats.attributes.stats.p2.top10.value }}
@@ -460,22 +458,9 @@ app.post('/webhook', (req, res) => {
     
   }
   
-  
-  if(intent == 'shop'){
-    var TenSkins;
-    var Skins;
+  if(intent == 'shop - page 2'){
     
-    if (country == 'nl'){ 
-      Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
-    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund.) \n Is er nog iets anders wat ik voor je kan doen?"
-    }
-    
-    else {
-      Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
-      TenSkins = "Here are the first 10 items of the Fortnite shop.(10 is the maximum Google supports at the moment.) \n Is there anything else I can do?"
-    }
-      
-              var options = {
+                  var options = {
       method: "GET",
       url: 'https://api.fortnitetracker.com/v1/store',
       headers: {
@@ -483,8 +468,8 @@ app.post('/webhook', (req, res) => {
         'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
       }
     }
-              
-              request(options, (error, response, body) => {
+                  
+                                request(options, (error, response, body) => {
       if (!error && response.statusCode == 404)
       {
         var statz = JSON.parse(body);
@@ -495,15 +480,31 @@ app.post('/webhook', (req, res) => {
           source: 'Mr. Fortnite backend'});
         
       }
-        
-        else { console.log('No 404');
-              
-                    
-          var stats = JSON.parse(body);  
+                                   else { console.log('No 404'); 
+                                        
+                                                        var TenSkins;
+    var Skins;
+    
+    if (country == 'nl'){ 
+      Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
+    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Shop pagina 2) \n Is er nog iets anders wat ik voor je kan doen?"
+    }
+    
+    else {
+      Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
+      TenSkins = "Here are the first 10 items of the Fortnite shop.(10 is the maximum Google supports at the moment. If you want to see the other items, say: Shop page 2) \n Is there anything else I can do?"
+    }
+                                         
+                                         
+        var stats = JSON.parse(body);  
               console.log (stats.length);
               var items = stats.length;
-              
-              if(items == 12 || items == 11 || items == 10){
+                                         
+                                         if(items => 10 || items == 10){
+                                           
+                                           if (items == 18){
+                
+                
               
                res.status(200).json({
 
@@ -514,6 +515,7 @@ app.post('/webhook', (req, res) => {
       "richResponse": {
         "items": [
           {
+            
             "simpleResponse": {
               "textToSpeech": TenSkins
             }
@@ -526,6 +528,7 @@ app.post('/webhook', (req, res) => {
           "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
           "carouselSelect": {
             "items": [
+              
               {
                 "optionInfo": {
                   "key": stats[0].name
@@ -635,7 +638,260 @@ app.post('/webhook', (req, res) => {
                   "accessibilityText": stats[9].name
                 },
                 "title": "10. " + stats[9].name
+              },
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          });
               }
+                                         
+                                         
+                                         }
+                                          else if(items == 19){
+                                         
+                                         
+                                         }
+                                          else if(items == 20){
+                                         
+                                         
+                                         }
+                                         
+                                         else if(items == 17){
+                                         
+                                         
+                                         }
+                                         
+                                          else if(items == 16){
+                                         
+                                         
+                                         }
+                                          else if(items == 15){
+                                         
+                                         
+                                         }
+                                          else if(items == 14){
+                                         
+                                         
+                                         }
+                                          else if(items == 13){
+                                         
+                                         
+                                         }
+                                         
+                                          else if(items == 12){
+                                         
+                                         
+                                         }
+                                          else if(items == 11){
+                                         
+                                         
+                                         }
+                                         
+                                         
+                                        }
+                                  
+                                })
+                                        
+                  
+    
+  
+  
+  
+  
+  }
+  
+  if(intent == 'shop'){
+
+      
+              var options = {
+      method: "GET",
+      url: 'https://api.fortnitetracker.com/v1/store',
+      headers: {
+        'User-Agent': 'nodejs request',
+        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+      }
+    }
+              
+              request(options, (error, response, body) => {
+      if (!error && response.statusCode == 404)
+      {
+        var statz = JSON.parse(body);
+        var object = JSON.parse(body);
+        console.log('404')
+        res.status(200).json({
+       fulfillmentText: "Something went wrong!!😞 \n Is there something else I can do for you?",
+          source: 'Mr. Fortnite backend'});
+        
+      }
+        
+        else { console.log('No 404');
+              
+              
+                  var TenSkins;
+    var Skins;
+    
+    if (country == 'nl'){ 
+      Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
+    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Shop pagina 2) \n Is er nog iets anders wat ik voor je kan doen?"
+    }
+    
+    else {
+      Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
+      TenSkins = "Here are the first 10 items of the Fortnite shop.(10 is the maximum Google supports at the moment. If you want to see the other items, say: Shop page 2) \n Is there anything else I can do?"
+    }
+              
+                    
+          var stats = JSON.parse(body);  
+              console.log (stats.length);
+              var items = stats.length;
+              
+              if(items => 10 || items == 10){
+                
+                
+              
+               res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": TenSkins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[0].name
+                },
+                "description": "Vbucks: " + stats[0].vBucks,
+                "image": {
+                  "url": stats[0].imageUrl,
+                  "accessibilityText": stats[0].name
+                },
+                "title": "1. " + stats[0].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[1].name
+                },
+                "description": "Vbucks: " + stats[1].vBucks,
+                "image": {
+                  "url": stats[1].imageUrl,
+                  "accessibilityText": stats[1].name
+                },
+                "title": "2. " + stats[1].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[2].name
+                },
+                "description": "Vbucks: " + stats[2].vBucks,
+                "image": {
+                  "url": stats[2].imageUrl,
+                  "accessibilityText": stats[2].name
+                },
+                "title": "3. " + stats[2].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[3].name
+                },
+                "description": "Vbucks: " + stats[3].vBucks,
+                "image": {
+                  "url": stats[3].imageUrl,
+                  "accessibilityText": stats[3].name
+                },
+                "title": "4. " + stats[3].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[4].name
+                },
+                "description": "Vbucks: " + stats[4].vBucks,
+                "image": {
+                  "url": stats[4].imageUrl,
+                  "accessibilityText": stats[4].name
+                },
+                "title": "5. " + stats[4].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[5].name
+                },
+                "description": "Vbucks: " + stats[5].vBucks,
+                "image": {
+                  "url": stats[5].imageUrl,
+                  "accessibilityText": stats[5].name
+                },
+                "title": "6. " + stats[5].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[6].name
+                },
+                "description": "Vbucks: " + stats[6].vBucks,
+                "image": {
+                  "url": stats[6].imageUrl,
+                  "accessibilityText": stats[6].name
+                },
+                "title": "7. " + stats[6].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[7].name
+                },
+                "description": "Vbucks: " + stats[7].vBucks,
+                "image": {
+                  "url": stats[7].imageUrl,
+                  "accessibilityText": stats[7].name
+                },
+                "title": "8. " + stats[7].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[8].name
+                },
+                "description": "Vbucks: " + stats[8].vBucks,
+                "image": {
+                  "url": stats[8].imageUrl,
+                  "accessibilityText": stats[8].name
+                },
+                "title": "9. " + stats[8].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[9].name
+                },
+                "description": "Vbucks: " + stats[9].vBucks,
+                "image": {
+                  "url": stats[9].imageUrl,
+                  "accessibilityText": stats[9].name
+                },
+                "title": "10. " + stats[9].name
+              },
+              
 
 
             ]
@@ -1185,6 +1441,14 @@ app.post('/webhook', (req, res) => {
           var stats = JSON.parse(body);  
               var items = stats.battleroyalenews.news.messages.length
               console.log(items)
+              var itemtext = "Here is the latest news \n Is there anything else I can help you with?";
+              
+              if(country == 'nl'){
+              itemtext = "Hier is het laatste nieuws \n Is er iets anders waar ik je mee kan helpen?"}
+              
+              else{
+              itemtext = "Here is the latest news \n Is there anything else I can help you with?"}
+              
               
               if(items == 4){
           res.status(200).json({
@@ -1195,7 +1459,7 @@ app.post('/webhook', (req, res) => {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": "Here is the latest news"
+              "textToSpeech": itemtext
             }
           }
         ]
@@ -1264,21 +1528,316 @@ app.post('/webhook', (req, res) => {
                 }
               
               else if (items == 3){
-              
+                        res.status(200).json({
+"payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": itemtext
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[0].title
+                },
+                "description": stats.battleroyalenews.news.messages[0].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[0].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[0].body
+                },
+                "title": "1. " + stats.battleroyalenews.news.messages[0].title
+              },
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[1].title
+                },
+                "description": stats.battleroyalenews.news.messages[1].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[1].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[1].body
+                },
+                "title": stats.battleroyalenews.news.messages[1].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[2].title
+                },
+                "description": stats.battleroyalenews.news.messages[2].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[2].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[2].body
+                },
+                "title": stats.battleroyalenews.news.messages[2].title
+              }
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+            
+          //
+          });
               
               }
               
               else if(items == 2){
-              
+                        res.status(200).json({
+"payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": itemtext
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[0].title
+                },
+                "description": stats.battleroyalenews.news.messages[0].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[0].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[0].body
+                },
+                "title": "1. " + stats.battleroyalenews.news.messages[0].title
+              },
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[1].title
+                },
+                "description": stats.battleroyalenews.news.messages[1].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[1].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[1].body
+                },
+                "title": stats.battleroyalenews.news.messages[1].title
+              }
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+            
+          //
+          });
               }
               
               
               else if (items == 5){
+                          res.status(200).json({
+"payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": itemtext
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[0].title
+                },
+                "description": stats.battleroyalenews.news.messages[0].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[0].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[0].body
+                },
+                "title": "1. " + stats.battleroyalenews.news.messages[0].title
+              },
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[1].title
+                },
+                "description": stats.battleroyalenews.news.messages[1].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[1].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[1].body
+                },
+                "title": stats.battleroyalenews.news.messages[1].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[2].title
+                },
+                "description": stats.battleroyalenews.news.messages[2].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[2].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[2].body
+                },
+                "title": stats.battleroyalenews.news.messages[2].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[3].title
+                },
+                "description": stats.battleroyalenews.news.messages[3].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[3].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[3].body
+                },
+                "title": stats.battleroyalenews.news.messages[3].title
+              },
+                                          {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[4].title
+                },
+                "description": stats.battleroyalenews.news.messages[4].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[4].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[4].body
+                },
+                "title": stats.battleroyalenews.news.messages[4].title
+              }
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+            
+          //
+          });
               
               }
               
               
               else if(items == 6){
+                
+                          res.status(200).json({
+"payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": itemtext
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[0].title
+                },
+                "description": stats.battleroyalenews.news.messages[0].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[0].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[0].body
+                },
+                "title": "1. " + stats.battleroyalenews.news.messages[0].title
+              },
+              {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[1].title
+                },
+                "description": stats.battleroyalenews.news.messages[1].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[1].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[1].body
+                },
+                "title": stats.battleroyalenews.news.messages[1].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[2].title
+                },
+                "description": stats.battleroyalenews.news.messages[2].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[2].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[2].body
+                },
+                "title": stats.battleroyalenews.news.messages[2].title
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[3].title
+                },
+                "description": stats.battleroyalenews.news.messages[3].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[3].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[3].body
+                },
+                "title": stats.battleroyalenews.news.messages[3].title
+              },
+                                          {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[4].title
+                },
+                "description": stats.battleroyalenews.news.messages[4].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[4].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[4].body
+                },
+                "title": stats.battleroyalenews.news.messages[4].title
+              },
+                                          {
+                "optionInfo": {
+                  "key": stats.battleroyalenews.news.messages[5].title
+                },
+                "description": stats.battleroyalenews.news.messages[5].body,
+                "image": {
+                  "url": stats.battleroyalenews.news.messages[5].image,
+                  "accessibilityText": stats.battleroyalenews.news.messages[5].body
+                },
+                "title": stats.battleroyalenews.news.messages[5].title
+              }
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+            
+          //
+          });
               
               }
               

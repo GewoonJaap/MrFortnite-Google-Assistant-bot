@@ -458,6 +458,28 @@ app.post('/webhook', (req, res) => {
     
   }
   
+  if(intent == 'Feedback'){
+  let error = req.body.queryResult.parameters.error
+let intenttext = req.body.queryResult.parameters.intenttext
+let whatwould = req.body.queryResult.parameters.whatwould
+
+
+
+  
+  }
+  
+  
+  
+  
+  //Shop //
+  //
+  //
+  //
+  //
+  // Begin Shop//
+  
+  
+  
   if(intent == 'Page 2' || intent == 'Force shop page 2'){
     
                   var options = {
@@ -1593,12 +1615,12 @@ app.post('/webhook', (req, res) => {
     
     if (country == 'nl'){ 
       Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
-    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Shop pagina 2). \n Is er nog iets anders wat ik voor je kan doen?"
+    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Volgende pagina). \n Is er nog iets anders wat ik voor je kan doen?"
     }
     
     else {
       Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
-      TenSkins = "Here are the first 10 items of the Fortnite shop. (10 is the maximum Google supports at the moment. If you want to see the other items, say: Shop page 2). \n Is there anything else I can do?"
+      TenSkins = "Here are the first 10 items of the Fortnite shop. (10 is the maximum Google supports at the moment. If you want to see the other items, say: Next page). \n Is there anything else I can do?"
     }
               
                     

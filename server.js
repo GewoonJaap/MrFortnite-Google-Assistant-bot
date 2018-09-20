@@ -458,7 +458,7 @@ app.post('/webhook', (req, res) => {
     
   }
   
-  if(intent == 'shop - page 2'){
+  if(intent == 'Page 2' || intent == 'Force shop page 2'){
     
                   var options = {
       method: "GET",
@@ -486,12 +486,12 @@ app.post('/webhook', (req, res) => {
     var Skins;
     
     if (country == 'nl'){ 
-      Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
+      Skins = "Hier zijn de andere items.\n Is er nog iets anders wat ik voor je kan doen?";
     TenSkins = "Hier zijn de andere items.\n Is er nog iets anders wat ik voor je kan doen?"
     }
     
     else {
-      Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
+      Skins = "Here you have the other items of the shop.\n Is there anything else I can do?";
       TenSkins = "Here you have the other items of the shop.\n Is there anything else I can do?"
     }
                                          
@@ -631,48 +631,922 @@ app.post('/webhook', (req, res) => {
          //       
           });
               }
-                                         
-                                         
-                                         }
-                                          else if(items == 19){
+                                           
+                                           else if(items == 19){
+                                             
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": TenSkins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[13].name
+                },
+                "description": "Vbucks: " + stats[13].vBucks,
+                "image": {
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
+                },
+                "title": "4. " + stats[13].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[14].name
+                },
+                "description": "Vbucks: " + stats[14].vBucks,
+                "image": {
+                  "url": stats[14].imageUrl,
+                  "accessibilityText": stats[14].name
+                },
+                "title": "5. " + stats[14].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[15].name
+                },
+                "description": "Vbucks: " + stats[15].vBucks,
+                "image": {
+                  "url": stats[15].imageUrl,
+                  "accessibilityText": stats[15].name
+                },
+                "title": "6. " + stats[15].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[16].name
+                },
+                "description": "Vbucks: " + stats[16].vBucks,
+                "image": {
+                  "url": stats[16].imageUrl,
+                  "accessibilityText": stats[16].name
+                },
+                "title": "7. " + stats[16].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[17].name
+                },
+                "description": "Vbucks: " + stats[17].vBucks,
+                "image": {
+                  "url": stats[17].imageUrl,
+                  "accessibilityText": stats[17].name
+                },
+                "title": "8. " + stats[17].name
+              },
+                                          {
+                "optionInfo": {
+                  "key": stats[18].name
+                },
+                "description": "Vbucks: " + stats[18].vBucks,
+                "image": {
+                  "url": stats[18].imageUrl,
+                  "accessibilityText": stats[18].name
+                },
+                "title": "9. " + stats[18].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          });
                                          
                                          
                                          }
                                           else if(items == 20){
+                                            
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": TenSkins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[13].name
+                },
+                "description": "Vbucks: " + stats[13].vBucks,
+                "image": {
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
+                },
+                "title": "4. " + stats[13].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[14].name
+                },
+                "description": "Vbucks: " + stats[14].vBucks,
+                "image": {
+                  "url": stats[14].imageUrl,
+                  "accessibilityText": stats[14].name
+                },
+                "title": "5. " + stats[14].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[15].name
+                },
+                "description": "Vbucks: " + stats[15].vBucks,
+                "image": {
+                  "url": stats[15].imageUrl,
+                  "accessibilityText": stats[15].name
+                },
+                "title": "6. " + stats[15].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[16].name
+                },
+                "description": "Vbucks: " + stats[16].vBucks,
+                "image": {
+                  "url": stats[16].imageUrl,
+                  "accessibilityText": stats[16].name
+                },
+                "title": "7. " + stats[16].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[17].name
+                },
+                "description": "Vbucks: " + stats[17].vBucks,
+                "image": {
+                  "url": stats[17].imageUrl,
+                  "accessibilityText": stats[17].name
+                },
+                "title": "8. " + stats[17].name
+              },
+                                          {
+                "optionInfo": {
+                  "key": stats[18].name
+                },
+                "description": "Vbucks: " + stats[18].vBucks,
+                "image": {
+                  "url": stats[18].imageUrl,
+                  "accessibilityText": stats[18].name
+                },
+                "title": "9. " + stats[18].name
+              },
+                                                        {
+                "optionInfo": {
+                  "key": stats[18].name
+                },
+                "description": "Vbucks: " + stats[18].vBucks,
+                "image": {
+                  "url": stats[19].imageUrl,
+                  "accessibilityText": stats[19].name
+                },
+                "title": "10. " + stats[19].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
+                                            
                                          
                                          
                                          }
                                          
                                          else if(items == 17){
-                                         
+                                                                                     
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[13].name
+                },
+                "description": "Vbucks: " + stats[13].vBucks,
+                "image": {
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
+                },
+                "title": "4. " + stats[13].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[14].name
+                },
+                "description": "Vbucks: " + stats[14].vBucks,
+                "image": {
+                  "url": stats[14].imageUrl,
+                  "accessibilityText": stats[14].name
+                },
+                "title": "5. " + stats[14].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[15].name
+                },
+                "description": "Vbucks: " + stats[15].vBucks,
+                "image": {
+                  "url": stats[15].imageUrl,
+                  "accessibilityText": stats[15].name
+                },
+                "title": "6. " + stats[15].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[16].name
+                },
+                "description": "Vbucks: " + stats[16].vBucks,
+                "image": {
+                  "url": stats[16].imageUrl,
+                  "accessibilityText": stats[16].name
+                },
+                "title": "7. " + stats[16].name
+              },
+
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
                                          
                                          }
                                          
                                           else if(items == 16){
+                                            
+                                                                                        
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[13].name
+                },
+                "description": "Vbucks: " + stats[13].vBucks,
+                "image": {
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
+                },
+                "title": "4. " + stats[13].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[14].name
+                },
+                "description": "Vbucks: " + stats[14].vBucks,
+                "image": {
+                  "url": stats[14].imageUrl,
+                  "accessibilityText": stats[14].name
+                },
+                "title": "5. " + stats[14].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[15].name
+                },
+                "description": "Vbucks: " + stats[15].vBucks,
+                "image": {
+                  "url": stats[15].imageUrl,
+                  "accessibilityText": stats[15].name
+                },
+                "title": "6. " + stats[15].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
                                          
                                          
                                          }
                                           else if(items == 15){
+                                                                                        
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[13].name
+                },
+                "description": "Vbucks: " + stats[13].vBucks,
+                "image": {
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
+                },
+                "title": "4. " + stats[13].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[14].name
+                },
+                "description": "Vbucks: " + stats[14].vBucks,
+                "image": {
+                  "url": stats[14].imageUrl,
+                  "accessibilityText": stats[14].name
+                },
+                "title": "5. " + stats[14].name
+              },
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
                                          
                                          
                                          }
                                           else if(items == 14){
+                                                                                        
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats[13].name
+                },
+                "description": "Vbucks: " + stats[13].vBucks,
+                "image": {
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
+                },
+                "title": "4. " + stats[13].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
                                          
                                          
                                          }
                                           else if(items == 13){
+                                                                                        
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[12].name
+                },
+                "description": "Vbucks: " + stats[12].vBucks,
+                "image": {
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
+                },
+                "title": "3. " + stats[12].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
                                          
                                          
                                          }
                                          
                                           else if(items == 12){
+                                                                                        
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats[11].name
+                },
+                "description": "Vbucks: " + stats[11].vBucks,
+                "image": {
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
+                },
+                "title": "2. " + stats[11].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
                                          
                                          
                                          }
                                           else if(items == 11){
                                          
+                                                                                     
+                                                                                        
+                                             res.status(200).json({
+
+
+  "payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            
+            "simpleResponse": {
+              "textToSpeech": Skins
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              
+              {
+                "optionInfo": {
+                  "key": stats[10].name
+                },
+                "description": "Vbucks: " + stats[10].vBucks,
+                "image": {
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
+                },
+                "title": "1. " + stats[10].name
+              }
+              
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+                                    
+
+         //       
+          }); 
+                                         }
+                                           
+                                           
+                                         
                                          
                                          }
+                                         
+                                         
+                                         
+                                         
+                                         else {
+                                                 res.status(200).json({
+       fulfillmentText: "Something went wrong!!😞 \n Is there something else I can do for you?",
+          source: 'Mr. Fortnite backend'});
+                                         
+                                         }
+                                          
+                                    
                                          
                                          
                                         }

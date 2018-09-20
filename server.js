@@ -487,12 +487,12 @@ app.post('/webhook', (req, res) => {
     
     if (country == 'nl'){ 
       Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
-    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Shop pagina 2) \n Is er nog iets anders wat ik voor je kan doen?"
+    TenSkins = "Hier zijn de andere items.\n Is er nog iets anders wat ik voor je kan doen?"
     }
     
     else {
       Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
-      TenSkins = "Here are the first 10 items of the Fortnite shop.(10 is the maximum Google supports at the moment. If you want to see the other items, say: Shop page 2) \n Is there anything else I can do?"
+      TenSkins = "Here you have the other items of the shop.\n Is there anything else I can do?"
     }
                                          
                                          
@@ -531,114 +531,92 @@ app.post('/webhook', (req, res) => {
               
               {
                 "optionInfo": {
-                  "key": stats[0].name
+                  "key": stats[10].name
                 },
-                "description": "Vbucks: " + stats[0].vBucks,
+                "description": "Vbucks: " + stats[10].vBucks,
                 "image": {
-                  "url": stats[0].imageUrl,
-                  "accessibilityText": stats[0].name
+                  "url": stats[10].imageUrl,
+                  "accessibilityText": stats[10].name
                 },
-                "title": "1. " + stats[0].name
+                "title": "1. " + stats[10].name
               },
               {
                 "optionInfo": {
-                  "key": stats[1].name
+                  "key": stats[11].name
                 },
-                "description": "Vbucks: " + stats[1].vBucks,
+                "description": "Vbucks: " + stats[11].vBucks,
                 "image": {
-                  "url": stats[1].imageUrl,
-                  "accessibilityText": stats[1].name
+                  "url": stats[11].imageUrl,
+                  "accessibilityText": stats[11].name
                 },
-                "title": "2. " + stats[1].name
+                "title": "2. " + stats[11].name
               },
               {
                 "optionInfo": {
-                  "key": stats[2].name
+                  "key": stats[12].name
                 },
-                "description": "Vbucks: " + stats[2].vBucks,
+                "description": "Vbucks: " + stats[12].vBucks,
                 "image": {
-                  "url": stats[2].imageUrl,
-                  "accessibilityText": stats[2].name
+                  "url": stats[12].imageUrl,
+                  "accessibilityText": stats[12].name
                 },
-                "title": "3. " + stats[2].name
+                "title": "3. " + stats[12].name
               },
                             {
                 "optionInfo": {
-                  "key": stats[3].name
+                  "key": stats[13].name
                 },
-                "description": "Vbucks: " + stats[3].vBucks,
+                "description": "Vbucks: " + stats[13].vBucks,
                 "image": {
-                  "url": stats[3].imageUrl,
-                  "accessibilityText": stats[3].name
+                  "url": stats[13].imageUrl,
+                  "accessibilityText": stats[13].name
                 },
-                "title": "4. " + stats[3].name
+                "title": "4. " + stats[13].name
               },
                             {
                 "optionInfo": {
-                  "key": stats[4].name
+                  "key": stats[14].name
                 },
-                "description": "Vbucks: " + stats[4].vBucks,
+                "description": "Vbucks: " + stats[14].vBucks,
                 "image": {
-                  "url": stats[4].imageUrl,
-                  "accessibilityText": stats[4].name
+                  "url": stats[14].imageUrl,
+                  "accessibilityText": stats[14].name
                 },
-                "title": "5. " + stats[4].name
+                "title": "5. " + stats[14].name
               },
                             {
                 "optionInfo": {
-                  "key": stats[5].name
+                  "key": stats[15].name
                 },
-                "description": "Vbucks: " + stats[5].vBucks,
+                "description": "Vbucks: " + stats[15].vBucks,
                 "image": {
-                  "url": stats[5].imageUrl,
-                  "accessibilityText": stats[5].name
+                  "url": stats[15].imageUrl,
+                  "accessibilityText": stats[15].name
                 },
-                "title": "6. " + stats[5].name
+                "title": "6. " + stats[15].name
               },
                             {
                 "optionInfo": {
-                  "key": stats[6].name
+                  "key": stats[16].name
                 },
-                "description": "Vbucks: " + stats[6].vBucks,
+                "description": "Vbucks: " + stats[16].vBucks,
                 "image": {
-                  "url": stats[6].imageUrl,
-                  "accessibilityText": stats[6].name
+                  "url": stats[16].imageUrl,
+                  "accessibilityText": stats[16].name
                 },
-                "title": "7. " + stats[6].name
+                "title": "7. " + stats[16].name
               },
                             {
                 "optionInfo": {
-                  "key": stats[7].name
+                  "key": stats[17].name
                 },
-                "description": "Vbucks: " + stats[7].vBucks,
+                "description": "Vbucks: " + stats[17].vBucks,
                 "image": {
-                  "url": stats[7].imageUrl,
-                  "accessibilityText": stats[7].name
+                  "url": stats[17].imageUrl,
+                  "accessibilityText": stats[17].name
                 },
-                "title": "8. " + stats[7].name
-              },
-                            {
-                "optionInfo": {
-                  "key": stats[8].name
-                },
-                "description": "Vbucks: " + stats[8].vBucks,
-                "image": {
-                  "url": stats[8].imageUrl,
-                  "accessibilityText": stats[8].name
-                },
-                "title": "9. " + stats[8].name
-              },
-                            {
-                "optionInfo": {
-                  "key": stats[9].name
-                },
-                "description": "Vbucks: " + stats[9].vBucks,
-                "image": {
-                  "url": stats[9].imageUrl,
-                  "accessibilityText": stats[9].name
-                },
-                "title": "10. " + stats[9].name
-              },
+                "title": "8. " + stats[17].name
+              }
               
 
 
@@ -741,12 +719,12 @@ app.post('/webhook', (req, res) => {
     
     if (country == 'nl'){ 
       Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
-    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Shop pagina 2) \n Is er nog iets anders wat ik voor je kan doen?"
+    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Shop pagina 2). \n Is er nog iets anders wat ik voor je kan doen?"
     }
     
     else {
       Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
-      TenSkins = "Here are the first 10 items of the Fortnite shop.(10 is the maximum Google supports at the moment. If you want to see the other items, say: Shop page 2) \n Is there anything else I can do?"
+      TenSkins = "Here are the first 10 items of the Fortnite shop. (10 is the maximum Google supports at the moment. If you want to see the other items, say: Shop page 2). \n Is there anything else I can do?"
     }
               
                     

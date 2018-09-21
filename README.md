@@ -18,7 +18,7 @@ How to host?
 ------------
 
 
-I used [glitch.com](https://glitch.com/) to host this the backend, Glitch is free and easy to use. There are zero costs included, and it's very user friendly!
+I used [glitch.com](https://glitch.com/) to host this backend, Glitch is free and easy to use. There are zero costs included, and it's very user friendly!
 
 
 

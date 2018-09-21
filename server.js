@@ -12,6 +12,11 @@ const {dialogflow} = require('actions-on-google');
 const functions = require('firebase-functions');
 const app2 = dialogflow({debug: true});
 var admin = require('firebase-admin');
+
+// The Fortnite API key is written in a protected file that you can't access, request a key at: https://fortnitetracker.com/site-api
+var FortniteAPIKey = process.env.FORTNITEAPI
+// Google Drive feedback URL, used to save the feedback into google forms
+var GoogleDriveFeedbackURL = process.env.GOOGLEDRIVEURL
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -64,7 +69,7 @@ app.post('/webhook', (req, res) => {
       url: 'https://api.fortnitetracker.com/v1/profile/pc/' + name,
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
   
@@ -119,7 +124,7 @@ app.post('/webhook', (req, res) => {
       url: 'https://api.fortnitetracker.com/v1/profile/psn/' + name,
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
   
@@ -164,7 +169,7 @@ app.post('/webhook', (req, res) => {
       url: 'https://api.fortnitetracker.com/v1/profile/xb1/' + name,
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
       request(options, (error, response, body) => {
@@ -215,7 +220,7 @@ app.post('/webhook', (req, res) => {
       url: 'https://api.fortnitetracker.com/v1/profile/pc/' + name,
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
   
@@ -259,7 +264,7 @@ app.post('/webhook', (req, res) => {
       url: 'https://api.fortnitetracker.com/v1/profile/psn/' + name,
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
   
@@ -306,7 +311,7 @@ app.post('/webhook', (req, res) => {
       url: 'https://api.fortnitetracker.com/v1/profile/xb1/' + name,
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
   
@@ -463,6 +468,26 @@ app.post('/webhook', (req, res) => {
 let intenttext = req.body.queryResult.parameters.intenttext
 let whatwould = req.body.queryResult.parameters.whatwould
 
+var querystring = require('querystring');
+var http = require('http');
+var fs = require('fs');
+
+
+  console.log('Exec')
+  var myJSONObject = { "entry.180196638": intenttext, "entry.1913027449": whatwould, "entry.2083165757": error };
+request({
+    url: GoogleDriveFeedbackURL,
+    method: "POST",
+    json: true, 
+    body: myJSONObject
+}, function (error, response, body){
+    res.status(200).json({
+       fulfillmentText: "Thanks for your feedback! \n Is there something else I can do for you?",
+          source: 'Mr. Fortnite backend'});
+    console.log(response);
+});
+  
+
 
 
   
@@ -487,7 +512,7 @@ let whatwould = req.body.queryResult.parameters.whatwould
       url: 'https://api.fortnitetracker.com/v1/store',
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
                   
@@ -1553,6 +1578,12 @@ let whatwould = req.body.queryResult.parameters.whatwould
           }); 
                                          }
                                            
+                                           else if(items < 11){
+                                            res.status(200).json({
+       fulfillmentText: "Sorry, but the store has only 1 page of items😞! \n Is there something else I can do for you?",
+          source: 'Mr. Fortnite backend'});
+                                           }
+                                           
                                            
                                          
                                          
@@ -1591,7 +1622,7 @@ let whatwould = req.body.queryResult.parameters.whatwould
       url: 'https://api.fortnitetracker.com/v1/store',
       headers: {
         'User-Agent': 'nodejs request',
-        'TRN-Api-Key': 'c37bb805-ea82-4455-9a76-a8d210c0f003'
+        'TRN-Api-Key': FortniteAPIKey
       }
     }
               
@@ -1628,7 +1659,7 @@ let whatwould = req.body.queryResult.parameters.whatwould
               console.log (stats.length);
               var items = stats.length;
               
-              if(items => 10 || items == 10){
+              if(items >= 10 || items == 10){
                 
                 
               

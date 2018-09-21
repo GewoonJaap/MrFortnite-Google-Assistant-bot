@@ -14,11 +14,12 @@ Insert this into the pop-up: **GewoonJaap/MrFortnite-Google-Assistant-bot**
 
 
 
-How to host?
+Why glitch.com?
 ------------
 
 
-I used [glitch.com](https://glitch.com/) to host this backend, Glitch is free and easy to use. There are zero costs included, and it's very user friendly!
+[glitch.com](https://glitch.com/) is free and easy to use. There are zero costs included, and it's very user friendly!
+Your code is automaticlly being saved, and published to the live version of your app. Installing additional packages is very easy, because there is a package finder included.
 
 
 

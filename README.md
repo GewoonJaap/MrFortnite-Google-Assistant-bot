@@ -34,6 +34,14 @@ Click on Integrations, Click on intergration settings
 ![You should see this](https://i.gyazo.com/90836b252caea2ee86c74ed9af7a3bda.png)
 
 
+And follow the steps the site will provide you.
+
+
+You should have successfully made your very own app!
+
+Have fun!
+
+
 
 Why glitch.com?
 ------------

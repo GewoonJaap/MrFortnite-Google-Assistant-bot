@@ -471,24 +471,25 @@ let whatwould = req.body.queryResult.parameters.whatwould
 var querystring = require('querystring');
 var http = require('http');
 var fs = require('fs');
-
-
-  console.log('Exec')
-  var myJSONObject = { "entry.180196638": intenttext, "entry.1913027449": whatwould, "entry.2083165757": error };
-request({
-    url: GoogleDriveFeedbackURL,
-    method: "POST",
-    json: true, 
-    body: myJSONObject
-}, function (error, response, body){
-    res.status(200).json({
-       fulfillmentText: "Thanks for your feedback! \n Is there something else I can do for you?",
-          source: 'Mr. Fortnite backend'});
-    console.log(response);
-});
+    var response
+    
+    var request = require('request');
+request.post(GoogleDriveFeedbackURL, 
+    {form:{ 'entry.180196638': intenttext, 'entry.1913027449': whatwould, 'entry.2083165757': error }}, 
+    function(error, response, body){
   
-
-
+  if(country == 'nl'){
+  response = "Dankjewel voor de feedback! We gaan er mee aan de slag :) \n Is er nog iets anders wat ik voor je kan doen?"
+  }
+  
+  else{
+  response = "Thanks for your feedback! We are going to take a look at your submitted data :) \n Is there something else I can do for you?"}
+  
+      res.status(200).json({
+       fulfillmentText: response,
+          source: 'Mr. Fortnite backend'});
+        console.log(body);
+});
 
   
   }

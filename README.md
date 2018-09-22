@@ -1,7 +1,7 @@
 Mr. Fortnite Node.JS backend
 =================
 
-How to setup?
+How to setup the backend?
 ------------
 
 
@@ -12,6 +12,19 @@ Once you are in the editor, click on the project name in the right upper corner,
 Insert this into the pop-up: **GewoonJaap/MrFortnite-Google-Assistant-bot**
 
 
+How to setup Dialogflow?
+------------
+
+Go to [dialogflow.com](https://console.dialogflow.com/api-client)
+
+Login using your Google account.
+Make a new Agent, give it the name you want!
+
+Download the zip from the URL below, and follow the instructions I give you on that page.
+
+[Download here](https://github.com/GewoonJaap/MrFortnite-Google-Assistant-bot/releases/tag/DialogFlow_1.1)
+
+After im
 
 
 Why glitch.com?

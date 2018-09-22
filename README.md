@@ -22,9 +22,17 @@ Make a new Agent, give it the name you want!
 
 Download the zip from the URL below, and follow the instructions I give you on that page.
 
-[Download here](https://github.com/GewoonJaap/MrFortnite-Google-Assistant-bot/releases/tag/DialogFlow_1.1)
+[Click here](https://github.com/GewoonJaap/MrFortnite-Google-Assistant-bot/releases/tag/DialogFlow_1.1)
 
-After im
+After importing the zip file, setup your webhook, do this by clicking the fullfillment tab.
+Enter your glitch.com project url (Go to your Glitch project, click on the share, copy the url. It should look like this: https://yourappname.glitch.me)
+
+
+Click on save.
+
+Click on Integrations, Click on intergration settings 
+![You should see this](https://i.gyazo.com/90836b252caea2ee86c74ed9af7a3bda.png)
+
 
 
 Why glitch.com?

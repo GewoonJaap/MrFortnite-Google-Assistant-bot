@@ -488,7 +488,7 @@ request.post(GoogleDriveFeedbackURL,
       res.status(200).json({
        fulfillmentText: response,
           source: 'Mr. Fortnite backend'});
-        console.log(body);
+  return;
 });
 
   

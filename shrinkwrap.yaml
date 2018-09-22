@@ -3,7 +3,7 @@ dependencies:
   dialogflow: 4.0.3
   dialogflow-fulfillment: 0.5.0
   express: 4.16.3
-  firebase: 5.5.0
+  firebase: 5.5.1
   firebase-admin: 6.0.0
   firebase-functions: 2.0.5
   http: 0.0.0
@@ -40,16 +40,16 @@ packages:
       '@firebase/app-types': 0.x
     resolution:
       integrity: sha512-0r3gSQk9jw5orFHCTUIgao0zan6dHt2J0BO3t/uEzbod+uwqvUn/gh+yg+kK6HX92Fg8E7y030KX4Bw/aXt0Ew==
-  /@firebase/auth/0.7.5/@firebase!app@0.3.4:
+  /@firebase/auth/0.7.6/@firebase!app@0.3.4:
     dependencies:
       '@firebase/app': 0.3.4
       '@firebase/auth-types': 0.3.4
     dev: false
-    id: registry.npmjs.org/@firebase/auth/0.7.5
+    id: registry.npmjs.org/@firebase/auth/0.7.6
     peerDependencies:
       '@firebase/app': 0.x
     resolution:
-      integrity: sha512-rGPdETxVbLVo0JYoTnKFcBiiPB6dY9d0DaJYkIcw6qreTzo4YDJDZ6v6BFl5hYPWpZfLkfnM7sSTTsZQeySXxA==
+      integrity: sha512-tiX0ZuxlpcE+QLR6dFcSB2lLj/iBFOCSmNKjQSUltWa55psGJX6w5wwXDo+NBA0UFbGMkaC504cUJ3IsAIVyfQ==
   /@firebase/database-types/0.3.2:
     dev: false
     peerDependencies:
@@ -71,7 +71,7 @@ packages:
       '@firebase/app-types': 0.x
     resolution:
       integrity: sha512-xsQPk4MJq8KuuEq0QXYVWsQc+ksMeoYpmiYWM9UWIoT20PqmZ2WHmxLkVW7xFnM55wsawJ2FtW/Nan9uMhS1nw==
-  /@firebase/database/0.3.5/@firebase!app@0.3.4:
+  /@firebase/database/0.3.6/@firebase!app@0.3.4:
     dependencies:
       '@firebase/app': 0.3.4
       '@firebase/database-types': 0.3.2
@@ -80,38 +80,38 @@ packages:
       faye-websocket: 0.11.1
       tslib: 1.9.0
     dev: false
-    id: registry.npmjs.org/@firebase/database/0.3.5
+    id: registry.npmjs.org/@firebase/database/0.3.6
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-asDo43JW5oaUDyL41jQNLbJik8FWd58ya7Sc9YODsDakcHNcWNTV7q7B+Vuar8IYuhJBiDAIet8WePQ6QP8Rhw==
+      integrity: sha512-r02JOqTLcd2/qn7QkkJvIAxMiMxmeyd5B76kl9hHAs+3cil5mUzHnI3svtb4h0VIJYDHFKJMlVl/bE3GfcTR3A==
   /@firebase/firestore-types/0.7.0:
     dev: false
     peerDependencies:
       '@firebase/app-types': 0.x
     resolution:
       integrity: sha512-jyKRcKnSh3CSEPL4xGOZNoOXEiv7YmFK/JEcdd/4cAH17/Xo+Pk67gk1E648LRKh6QPghgNvzNTY5R10mKbQNw==
-  /@firebase/firestore/0.8.0/@firebase!app@0.3.4:
+  /@firebase/firestore/0.8.1/@firebase!app@0.3.4:
     dependencies:
       '@firebase/app': 0.3.4
       '@firebase/firestore-types': 0.7.0
       '@firebase/logger': 0.1.1
-      '@firebase/webchannel-wrapper': 0.2.8
+      '@firebase/webchannel-wrapper': 0.2.9
       grpc: 1.13.1
       tslib: 1.9.0
     dev: false
-    id: registry.npmjs.org/@firebase/firestore/0.8.0
+    id: registry.npmjs.org/@firebase/firestore/0.8.1
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-ia2SLVa+KoBf1A6Wj+NaFVCbPtHvbVK5sYi80YpnrFhHALliucVtltb4NI287oekT2bh4bNm/C9qz0iyTI/fLQ==
+      integrity: sha512-cKs6J7citpK6xYJWGMoXIhBdu4PuTJHpH4z3UjIdz5RP24mrENoCojOdbzVENxSfSQhyX41Ddovykz5OnZXscA==
   /@firebase/functions-types/0.2.0:
     dev: false
     resolution:
       integrity: sha512-q1FB3YKEAnWd+FpIL5Xn0B1BXO2IowrAdrSViXkFxNZVpp9iCzQ8Ytcbr3V1xUr3dnmoW/V7zkZJZGuwBgiVhw==
-  /@firebase/functions/0.3.0/@firebase!app@0.3.4:
+  /@firebase/functions/0.3.1/@firebase!app@0.3.4:
     dependencies:
       '@firebase/app': 0.3.4
       '@firebase/functions-types': 0.2.0
@@ -119,12 +119,12 @@ packages:
       isomorphic-fetch: 2.2.1
       tslib: 1.9.0
     dev: false
-    id: registry.npmjs.org/@firebase/functions/0.3.0
+    id: registry.npmjs.org/@firebase/functions/0.3.1
     peerDependencies:
       '@firebase/app': 0.x
       '@firebase/app-types': 0.x
     resolution:
-      integrity: sha512-bCJmcniVbCdPcydI+CdeEkDidlBnJRsc667ETvljwfnp+df4Em2ZSqcEG8DApzuyd+uI+rYFCvwX5FS4pkFkcA==
+      integrity: sha512-6A38x7zPU6zCTyOgGx2v+z4ugcsWnciL6YkcZXLNlCLveUmFdL0DmaW5MEBSpSOOe8kOJMl7f3aaD6lWUHNOBg==
   /@firebase/logger/0.1.1:
     dev: false
     resolution:
@@ -186,10 +186,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-vfRjmCWuxtJx3txHocaNlDwCDwwv6KLL5YtlSNi73wBdvF3UfnpLGrth7G3X6gn5rDhOKamRg2+9L8cfsjSS1A==
-  /@firebase/webchannel-wrapper/0.2.8:
+  /@firebase/webchannel-wrapper/0.2.9:
     dev: false
     resolution:
-      integrity: sha512-ToJbeJnxDc3O325FvcKVb3yHO1hvgHjCFvhKol6Z17GiB7vL104POjFQT4RnlLiAGSRCBAMxinDec9y9vQYdyg==
+      integrity: sha512-Hx30hgRw078+39G6GqHuBaW7xCQQjGx7gALtCeKR0fklDzpRazqudjLKV8Rh5LbcdczrgpsOmLuZQAlqbCBaFw==
   /@google-cloud/common/0.17.0:
     dependencies:
       array-uniq: 1.0.3
@@ -1397,19 +1397,19 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-XedOTdaej68I/AmJyeDIKL2Cw6MwI7Ugov5QoEsOU9bh25iAseZmFKFQeqimW5Wb9wKLAli2Wq8ld+FtdOwdvQ==
-  /firebase/5.5.0:
+  /firebase/5.5.1:
     dependencies:
       '@firebase/app': 0.3.4
-      '@firebase/auth': /@firebase/auth/0.7.5/@firebase!app@0.3.4
-      '@firebase/database': /@firebase/database/0.3.5/@firebase!app@0.3.4
-      '@firebase/firestore': /@firebase/firestore/0.8.0/@firebase!app@0.3.4
-      '@firebase/functions': /@firebase/functions/0.3.0/@firebase!app@0.3.4
+      '@firebase/auth': /@firebase/auth/0.7.6/@firebase!app@0.3.4
+      '@firebase/database': /@firebase/database/0.3.6/@firebase!app@0.3.4
+      '@firebase/firestore': /@firebase/firestore/0.8.1/@firebase!app@0.3.4
+      '@firebase/functions': /@firebase/functions/0.3.1/@firebase!app@0.3.4
       '@firebase/messaging': /@firebase/messaging/0.3.6/@firebase!app@0.3.4
       '@firebase/polyfill': 0.3.3
       '@firebase/storage': /@firebase/storage/0.2.3/@firebase!app@0.3.4
     dev: false
     resolution:
-      integrity: sha512-mdBVBz0jPvsMNsTvAhcLOu5oDkeIQulPqyflAJeDtTfBqCie/7u3exhQDHuwLajhVdukEgL+vmI75Y8XcFtQmg==
+      integrity: sha512-2n8/7+qCcXpEC/4fNB2qWgX0yQx7U2EUoyh6YxgctSyd5gyqtpbjcTMqrCnjMHA514eduVZmjoI+C8GeKXZEUw==
   /follow-redirects/1.5.7:
     dependencies:
       debug: 3.1.0
@@ -3409,7 +3409,7 @@ specifiers:
   dialogflow: ^4.0.3
   dialogflow-fulfillment: ^0.5.0
   express: ^4.16.3
-  firebase: ^5.5.0
+  firebase: ^5.5.1
   firebase-admin: ^6.0.0
   firebase-functions: ^2.0.5
   http: ^0.0.0

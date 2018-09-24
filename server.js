@@ -363,8 +363,10 @@ app.post('/webhook', (req, res) => {
   }
   
   if(intent == "Cube"){
-
-commandlogging();
+    
+let CubeResponse = require(`./commands/cube.js`);
+    CubeResponse();
+    commandlogging();
     
     
     

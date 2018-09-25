@@ -16,7 +16,8 @@ var admin = require('firebase-admin');
 // The Fortnite API key is written in a protected file that you can't access, request a key at: https://fortnitetracker.com/site-api
 var FortniteAPIKey = process.env.FORTNITEAPI
 // Google Drive feedback URL, used to save the feedback into google forms
-var GoogleDriveFeedbackURL = process.env.GOOGLEDRIVEURL
+var GoogleDriveFeedbackURL = process.env.GOOGLEDRIVEURL;
+var CommandLoggerURL = process.env.COMMANDLOGGERURL;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -41,6 +42,7 @@ app.post('/webhook', (req, res) => {
   
   
   if(req.body.queryResult.intent.displayName = "stats"){
+    commandlogging();
   
   let name = req.body.queryResult.parameters.any
   
@@ -361,8 +363,10 @@ app.post('/webhook', (req, res) => {
   }
   
   if(intent == "Cube"){
-
-
+    
+let CubeResponse = require(`./commands/cube.js`);
+    CubeResponse();
+    commandlogging();
     
     
     
@@ -463,6 +467,24 @@ app.post('/webhook', (req, res) => {
     
   }
   
+  
+  function commandlogging() {
+       let Text = req.body.queryResult.queryText
+
+var querystring = require('querystring');
+var http = require('http');
+var fs = require('fs');
+    var thxtext;
+    
+request.post(CommandLoggerURL, 
+    {form:{ 'entry.1325239568': intent, 'entry.761812201': Text }}, 
+    function(error, response, body){
+  console.log("-> Command logged!")
+
+  return;
+});
+}
+  
   if(intent == 'Feedback'){
   let error = req.body.queryResult.parameters.error
 let intenttext = req.body.queryResult.parameters.intenttext
@@ -471,24 +493,23 @@ let whatwould = req.body.queryResult.parameters.whatwould
 var querystring = require('querystring');
 var http = require('http');
 var fs = require('fs');
-    var response
+    var thxtext;
     
-    var request = require('request');
 request.post(GoogleDriveFeedbackURL, 
     {form:{ 'entry.180196638': intenttext, 'entry.1913027449': whatwould, 'entry.2083165757': error }}, 
     function(error, response, body){
   
   if(country == 'nl'){
-  response = "Dankjewel voor de feedback! We gaan er mee aan de slag :) \n Is er nog iets anders wat ik voor je kan doen?"
+  thxtext = "Dankjewel voor de feedback! We gaan er mee aan de slag :) \n Is er nog iets anders wat ik voor je kan doen?"
   }
   
   else{
-  response = "Thanks for your feedback! We are going to take a look at your submitted data :) \n Is there something else I can do for you?"}
+  thxtext = "Thanks for your feedback! We are going to take a look at your submitted data :) \n Is there something else I can do for you?"}
   
       res.status(200).json({
-       fulfillmentText: response,
+       fulfillmentText: thxtext,
           source: 'Mr. Fortnite backend'});
-        console.log(body);
+  return;
 });
 
   
@@ -507,7 +528,7 @@ request.post(GoogleDriveFeedbackURL,
   
   
   if(intent == 'Page 2' || intent == 'Force shop page 2'){
-    
+    commandlogging();
                   var options = {
       method: "GET",
       url: 'https://api.fortnitetracker.com/v1/store',
@@ -1616,6 +1637,7 @@ request.post(GoogleDriveFeedbackURL,
   }
   
   if(intent == 'shop'){
+    commandlogging();
 
       
               var options = {
@@ -2315,6 +2337,7 @@ request.post(GoogleDriveFeedbackURL,
   
   
   if(intent == "news"){
+    commandlogging();
     
           //EN playstation stats
       

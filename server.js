@@ -18,6 +18,7 @@ var FortniteAPIKey = process.env.FORTNITEAPI
 // Google Drive feedback URL, used to save the feedback into google forms
 var GoogleDriveFeedbackURL = process.env.GOOGLEDRIVEURL;
 var CommandLoggerURL = process.env.COMMANDLOGGERURL;
+var MrFortniteURL = process.env.MRFORTNITESITE;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -394,14 +395,14 @@ let CubeResponse = require(`./commands/cube.js`);
                         "basicCard": {
                             "title": "Kubus locatie",
                             "image": {
-                                "url": "https://image.fnbr.co/cube.jpg?" + finalA,
+                                "url": "https://image.fnbr.co/island.jpg?" + finalA,
                                 "accessibilityText": "Kubus locatie"
                             },
                             "buttons": [
                                 {
                                     "title": "Credits naar fnbr.co",
                                     "openUrlAction": {
-                                        "url": "https://fnbr.co/cube"
+                                        "url": "https://fnbr.co/island"
                                     }
                                 }
                             ],
@@ -438,16 +439,17 @@ let CubeResponse = require(`./commands/cube.js`);
                         "basicCard": {
                             "title": "Current cube location",
                             "image": {
-                                "url": "https://image.fnbr.co/cube.jpg?" + finalA,
+                                "url": "https://image.fnbr.co/island.jpg?" + finalA,
                                 "accessibilityText": "Current cube location"
                             },
                             "buttons": [
                                 {
-                                    "title": "Credits for fnbr.co",
+                                    "title": "Credits to fnbr.co",
                                     "openUrlAction": {
-                                        "url": "https://fnbr.co/cube"
+                                        "url": "https://fnbr.co/island"
                                     }
-                                }
+                                },6
+                              
                             ],
                             "imageDisplayOptions": "WHITE"
                         }
@@ -1574,6 +1576,18 @@ request.post(GoogleDriveFeedbackURL,
           "carouselSelect": {
             "items": [
               
+                            {
+                "optionInfo": {
+                  "key": stats[9].name
+                },
+                "description": "Vbucks: " + stats[9].vBucks,
+                "image": {
+                  "url": stats[9].imageUrl,
+                  "accessibilityText": stats[9].name
+                },
+                "title": "1. " + stats[9].name
+              },
+              
               {
                 "optionInfo": {
                   "key": stats[10].name
@@ -1583,7 +1597,7 @@ request.post(GoogleDriveFeedbackURL,
                   "url": stats[10].imageUrl,
                   "accessibilityText": stats[10].name
                 },
-                "title": "1. " + stats[10].name
+                "title": "2. " + stats[10].name
               }
               
 
@@ -1663,6 +1677,8 @@ request.post(GoogleDriveFeedbackURL,
         
         else { console.log('No 404');
               
+
+              
               
                   var TenSkins;
     var Skins;
@@ -1682,11 +1698,16 @@ request.post(GoogleDriveFeedbackURL,
               console.log (stats.length);
               var items = stats.length;
               
+                            var i;
+for (i = 0; i < stats.length; i++) { 
+    console.log(stats[i]);
+};
+              
+              
               if(items >= 10 || items == 10){
                 
-                
-              
-               res.status(200).json({
+                                                             
+              res.status(200).json({
 
 
   "payload": {
@@ -1831,7 +1852,7 @@ request.post(GoogleDriveFeedbackURL,
                                     
 
          //       
-          });
+          }); 
               }
               
               

@@ -363,6 +363,46 @@ app.post('/webhook', (req, res) => {
          source: "Mr. Fortnite backend"}); */
   }
   
+  
+  if(intent == "ItemLeaks"){
+  var LeaksResponseShort
+  if(country == "nl"){
+  LeaksResponseShort = "Hier heb je de laatste leaks!"
+    
+  }
+    else{
+      LeaksResponseShort = "Here you have the latest leaks!"
+    }
+    
+              var options = {
+      method: "GET",
+      // player name is robi62
+      url: 'https://api.fortnitetracker.com/v1/profile/xb1/' + name,
+      headers: {
+        'User-Agent': 'nodejs request',
+        'TRN-Api-Key': FortniteAPIKey
+      }
+    }  
+              
+                    request(options, (error, response, body) => {
+      if (!error && response.statusCode == 404)
+      {
+        var statz = JSON.parse(body);
+        var object = JSON.parse(body);
+        console.log('404')
+        res.status(200).json({
+       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
+          source: 'Mr. Fortnite backend'});
+        
+      }
+                    
+                    
+                    
+                    
+                    })
+  
+  }
+  
   if(intent == "Cube"){
     
 let CubeResponse = require(`./commands/cube.js`);
@@ -421,8 +461,9 @@ let CubeResponse = require(`./commands/cube.js`);
   } 
     
     else {
-               res.status(200).json({
- "fulfillmentText": "Here is the cube location! \nIs there something else I can do for you?",
+    console.log("Cube intent")
+            res.status(200).json({
+ "fulfillmentText": "Here you have the Cube location.\nIs there something else I can do for you?",
     "fulfillmentMessages": [],
     "source": "Mr. Fortnite API",
     "payload": {
@@ -432,24 +473,23 @@ let CubeResponse = require(`./commands/cube.js`);
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": "Here is the cube location! \nIs there something else I can do for you?"
+                            "textToSpeech": "Here you have the Cube location.\nIs there something else I can do for you?"
                         }
                     },
                     {
                         "basicCard": {
-                            "title": "Current cube location",
+                            "title": "Cube location",
                             "image": {
                                 "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": "Current cube location"
+                                "accessibilityText": "Cube location"
                             },
                             "buttons": [
                                 {
-                                    "title": "Credits to fnbr.co",
+                                    "title": "Credits: fnbr.co",
                                     "openUrlAction": {
                                         "url": "https://fnbr.co/island"
                                     }
-                                },6
-                              
+                                }
                             ],
                             "imageDisplayOptions": "WHITE"
                         }

@@ -3,6 +3,7 @@
 
 // init project
 const express = require('express');
+JSON.serialize = JSON.stringify;
 const appd = require('dialogflow')
 const bodyParser = require('body-parser');
 var request = require('request');
@@ -19,6 +20,7 @@ var FortniteAPIKey = process.env.FORTNITEAPI
 var GoogleDriveFeedbackURL = process.env.GOOGLEDRIVEURL;
 var CommandLoggerURL = process.env.COMMANDLOGGERURL;
 var MrFortniteURL = process.env.MRFORTNITESITE;
+var FNBRcoAPI = process.env.FNBRCO
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -363,6 +365,8 @@ app.post('/webhook', (req, res) => {
          source: "Mr. Fortnite backend"}); */
   }
   
+  
+  
   if(intent == "Cube"){
     
 let CubeResponse = require(`./commands/cube.js`);
@@ -421,8 +425,9 @@ let CubeResponse = require(`./commands/cube.js`);
   } 
     
     else {
-               res.status(200).json({
- "fulfillmentText": "Here is the cube location! \nIs there something else I can do for you?",
+    console.log("Cube intent")
+            res.status(200).json({
+ "fulfillmentText": "Here you have the Cube location.\nIs there something else I can do for you?",
     "fulfillmentMessages": [],
     "source": "Mr. Fortnite API",
     "payload": {
@@ -432,24 +437,23 @@ let CubeResponse = require(`./commands/cube.js`);
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": "Here is the cube location! \nIs there something else I can do for you?"
+                            "textToSpeech": "Here you have the Cube location.\nIs there something else I can do for you?"
                         }
                     },
                     {
                         "basicCard": {
-                            "title": "Current cube location",
+                            "title": "Cube location",
                             "image": {
                                 "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": "Current cube location"
+                                "accessibilityText": "Cube location"
                             },
                             "buttons": [
                                 {
-                                    "title": "Credits to fnbr.co",
+                                    "title": "Credits: fnbr.co",
                                     "openUrlAction": {
                                         "url": "https://fnbr.co/island"
                                     }
-                                },6
-                              
+                                }
                             ],
                             "imageDisplayOptions": "WHITE"
                         }
@@ -2797,6 +2801,191 @@ for (i = 0; i < stats.length; i++) {
     
 
                                     }
+  
+  
+  
+  
+  if(intent == "ItemLeaks"){
+  var LeaksResponseShort
+  if(country == "nl"){
+  LeaksResponseShort = "Hier heb je de laatste leaks! \n Is er nog iets anders wat ik kan doen?"
+    
+  }
+    else{
+      LeaksResponseShort = "Here you have the latest leaks! \n Is there something else I can do?"
+    }
+    
+              var options = {
+      method: "GET",
+      // player name is robi62
+      url: 'https://fnbr.co/api/upcoming',
+      headers: {
+        'User-Agent': 'nodejs request',
+        'x-api-key': FNBRcoAPI
+      }
+    }  
+              
+                    request(options, (error, response, body) => {
+      if (!error && response.statusCode == 404)
+      {
+        console.log('404')
+        res.status(200).json({
+       fulfillmentText: "Woops, something went wrong!😞 \n Is there something else I can do for you?",
+          source: 'Mr. Fortnite backend'});
+        
+      }
+                    
+                    
+        else {
+              var stats = JSON.parse(body);
+          var size = stats.data.length
+          var statseen = JSON.parse(body);
+          console.log(size)
+          var i;
+        for (i = 0; i < stats.data.length; i++) { 
+          var leaksarray =+ '"optionInfo": {"key": ' + stats.data[i].name + ' },' + '"Description:"' + stats.data[i].name + "," + '"image":{ "url": ' + stats.data[i].images.icon + ', "accessibilityText": ' + stats.data[i].type + " " + stats.data[i].rarity + '}, "title": "1. " ' + stats.data[i].name + ' },"';
+        console.log(leaksarray)
+         stats.data[i] = statseen[i]
+          }
+          var jsoned = JSON.serialize(statseen)
+          console.log(jsoned)
+          
+          if(size == 7){
+                           
+                          res.status(200).json({
+"payload": {
+    "google": {
+      "expectUserResponse": true,
+      "richResponse": {
+        "items": [
+          {
+            "simpleResponse": {
+              "textToSpeech": LeaksResponseShort
+            }
+          }
+        ]
+      },
+      "systemIntent": {
+        "intent": "actions.intent.OPTION",
+        "data": {
+          "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+          "carouselSelect": {
+            "items": [
+              {
+                "optionInfo": {
+                  "key": stats.data[0].name
+                },
+                "description": stats.data[0].type + " " + stats.data[0].rarity,
+                "image": {
+                  "url": stats.data[0].images.icon,
+                  "accessibilityText": stats.data[0].type + " " + stats.data[0].rarity
+                },
+                "title": "1. " + stats.data[0].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats.data[1].name
+                },
+                "description": stats.data[1].type + " " + stats.data[1].rarity,
+                "image": {
+                  "url": stats.data[1].images.icon,
+                  "accessibilityText": stats.data[1].type + " " + stats.data[1].rarity
+                },
+                "title": "2. " + stats.data[1].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats.data[2].name
+                },
+                "description": stats.data[2].type + " " + stats.data[2].rarity,
+                "image": {
+                  "url": stats.data[2].images.icon,
+                  "accessibilityText": stats.data[2].type + " " + stats.data[2].rarity
+                },
+                "title": "3. " + stats.data[2].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats.data[3].name
+                },
+                "description": stats.data[3].type + " " + stats.data[3].rarity,
+                "image": {
+                  "url": stats.data[3].images.icon,
+                  "accessibilityText": stats.data[0].type + " " + stats.data[3].rarity
+                },
+                "title": "4. " + stats.data[3].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats.data[4].name
+                },
+                "description": stats.data[4].type + " " + stats.data[4].rarity,
+                "image": {
+                  "url": stats.data[4].images.icon,
+                  "accessibilityText": stats.data[4].type + " " + stats.data[4].rarity
+                },
+                "title": "5. " + stats.data[4].name
+              },
+              {
+                "optionInfo": {
+                  "key": stats.data[5].name
+                },
+                "description": stats.data[5].type + " " + stats.data[5].rarity,
+                "image": {
+                  "url": stats.data[5].images.icon,
+                  "accessibilityText": stats.data[5].type + " " + stats.data[5].rarity
+                },
+                "title": "6. " + stats.data[5].name
+              },
+                            {
+                "optionInfo": {
+                  "key": stats.data[6].name
+                },
+                "description": stats.data[6].type + " " + stats.data[6].rarity,
+                "image": {
+                  "url": stats.data[6].images.icon,
+                  "accessibilityText": stats.data[6].type + " " + stats.data[6].rarity
+                },
+                "title": "7. " + stats.data[6].name
+              },
+
+
+            ]
+          }
+        }
+      }
+    }
+  }
+            
+          //
+          }); 
+            
+            
+          
+          }
+          
+          else if(size > 6){
+          
+                  res.status(200).json({
+       fulfillmentText: "Woops, we are still optimizing this feature, be prepared! \n Is there something else I can do for you?",
+          source: 'Mr. Fortnite backend'});
+          
+          }
+          
+              
+             
+        
+        
+        }
+                      
+            
+                    })
+  
+  }
+  
+  
+  
+  
   
                
   

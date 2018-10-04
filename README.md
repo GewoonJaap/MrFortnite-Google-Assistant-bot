@@ -42,6 +42,9 @@ You should have successfully made your very own app!
 Have fun!
 
 
+(If you want to use a very minimalistic script to get started copy everything from basic.js to your server.js)
+
+
 
 Why glitch.com?
 ------------

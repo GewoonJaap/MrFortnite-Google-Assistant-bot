@@ -157,7 +157,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings.en.statsusernotfound,
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -166,7 +166,7 @@ local = 'nl'
               var statz = JSON.parse(body);
               
               if(!statz.stats) return res.status(200).json({
-       fulfillmentText: strings.en.statsdevicenotfound,
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
             var stats = JSON.parse(body);  
@@ -201,7 +201,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings.en.statsusernotfound,
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -212,7 +212,7 @@ local = 'nl'
               var statz = JSON.parse(body);
               
               if(!statz.stats) return res.status(200).json({
-       fulfillmentText: strings.en.statsdevicenotfound,
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -253,7 +253,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings.nl.statsusernotfound,
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -262,7 +262,7 @@ local = 'nl'
               var stats = JSON.parse(body);
               
               if(!stats.stats) return res.status(200).json({
-       fulfillmentText: strings.nl.statsdevicenotfound,
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'}); 
               
               
@@ -297,7 +297,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings.nl.statsusernotfound,
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -307,7 +307,7 @@ local = 'nl'
               var stats = JSON.parse(body);  
               
                          if(!stats.stats) return res.status(200).json({
-       fulfillmentText: strings.nl.statsdevicenotfound,
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -344,7 +344,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings.nl.statsusernotfound,
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -354,7 +354,7 @@ local = 'nl'
               
               
                          if(!statz.stats) return res.status(200).json({
-       fulfillmentText: strings.nl.statsdevicenotfound,
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -393,13 +393,10 @@ let CubeResponse = require(`./commands/cube.js`);
     
     
     var finalA = '1' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
-    
-    if(country == "nl"){
-    
-  
-    console.log("Cube intent")
+
+    console.log("Cube intent" + local)
             res.status(200).json({
- "fulfillmentText": "Hier heb je de locatie van de kubus.\nIs er nog iets wat ik voor je kan doen?",
+ "fulfillmentText": strings[local].cubelocation,
     "fulfillmentMessages": [],
     "source": "Mr. Fortnite API",
     "payload": {
@@ -409,64 +406,19 @@ let CubeResponse = require(`./commands/cube.js`);
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": "Hier heb je de locatie van de kubus.\nIs er nog iets wat ik voor je kan doen?"
+                            "textToSpeech": strings[local].cubelocation,
                         }
                     },
                     {
                         "basicCard": {
-                            "title": "Kubus locatie",
+                            "title": strings[local].cubeimagetitle,
                             "image": {
                                 "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": "Kubus locatie"
+                                "accessibilityText": strings[local].cubeimagetitle
                             },
                             "buttons": [
                                 {
-                                    "title": "Credits naar fnbr.co",
-                                    "openUrlAction": {
-                                        "url": "https://fnbr.co/island"
-                                    }
-                                }
-                            ],
-                            "imageDisplayOptions": "WHITE"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "outputContexts": [],
-    "followupEventInput": {}
-         //       
-          });
-  
-  } 
-    
-    else {
-    console.log("Cube intent")
-            res.status(200).json({
- "fulfillmentText": "Here you have the Cube location.\nIs there something else I can do for you?",
-    "fulfillmentMessages": [],
-    "source": "Mr. Fortnite API",
-    "payload": {
-        "google": {
-            "expectUserResponse": true,
-            "richResponse": {
-                "items": [
-                    {
-                        "simpleResponse": {
-                            "textToSpeech": "Here you have the Cube location.\nIs there something else I can do for you?"
-                        }
-                    },
-                    {
-                        "basicCard": {
-                            "title": "Cube location",
-                            "image": {
-                                "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": "Cube location"
-                            },
-                            "buttons": [
-                                {
-                                    "title": "Credits: fnbr.co",
+                                    "title": strings[local].cubebuttontitle,
                                     "openUrlAction": {
                                         "url": "https://fnbr.co/island"
                                     }
@@ -488,7 +440,7 @@ let CubeResponse = require(`./commands/cube.js`);
     
     }
     
-  }
+  
   
   
   function commandlogging() {

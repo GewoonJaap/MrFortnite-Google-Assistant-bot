@@ -1,0 +1,13 @@
+{
+
+  "en": {
+    "hey": "hey there",
+    "statsusernotfound": "Woops, This user isn't known yet😞 \n Something else i can do?",
+    "statsdevicenotfound": "Woops, This player doesn't play on this device😞 \n Something else i can do?"
+  },
+    "nl": {
+    "hey": "hallo",
+    "statsusernotfound": "Woops, deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
+    "statsdevicenotfound": "Woops, deze speler speelt niet op dit apparaat😞 \n Is er iets anders wat ik voor je kan doen?"
+  }
+}

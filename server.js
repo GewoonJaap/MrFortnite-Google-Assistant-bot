@@ -474,15 +474,9 @@ request.post(GoogleDriveFeedbackURL,
     {form:{ 'entry.180196638': intenttext, 'entry.1913027449': whatwould, 'entry.2083165757': error }}, 
     function(error, response, body){
   
-  if(country == 'nl'){
-  thxtext = "Dankjewel voor de feedback! We gaan er mee aan de slag :) \n Is er nog iets anders wat ik voor je kan doen?"
-  }
-  
-  else{
-  thxtext = "Thanks for your feedback! We are going to take a look at your submitted data :) \n Is there something else I can do for you?"}
   
       res.status(200).json({
-       fulfillmentText: thxtext,
+       fulfillmentText: strings[local].feedbackthanks,
           source: 'Mr. Fortnite backend'});
   return;
 });

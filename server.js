@@ -14,6 +14,12 @@ const functions = require('firebase-functions');
 const app2 = dialogflow({debug: true});
 var admin = require('firebase-admin');
 
+
+//Locals
+
+var strings = require('./strings.json');
+console.log(strings.en.hey + ' ' + strings.nl.hey);
+
 // The Fortnite API key is written in a protected file that you can't access, request a key at: https://fortnitetracker.com/site-api
 var FortniteAPIKey = process.env.FORTNITEAPI
 // Google Drive feedback URL, used to save the feedback into google forms
@@ -25,11 +31,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/version', (req, res) => {
-    res.status(200).send("APIAI Webhook Integration. Version 1.0");
+    res.status(200).send("Mr. Fortnite Webhook. Version 1.0");
 });
 
 app.get('/', (req, res) => {
-    res.status(200).send("Hello from APIAI Webhook Integration.");
+    res.status(200).send("Hello from the Mr. Fortnite Webhook!");
 });
 
 /* Handling all messenges */
@@ -39,9 +45,20 @@ app.post('/webhook', (req, res) => {
     console.log(req.body.queryResult.parameters["device"]);
     console.log(req.body.queryResult.parameters.any);
     let country = req.body.queryResult.languageCode;
+  var local = 'en'
   var finalA = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
   console.log(req.body.queryResult.intent.displayName);
   let intent = req.body.queryResult.intent.displayName;
+  
+  //Set the language for the command output.
+  
+if(country == 'nl'){
+local = 'nl'
+}
+  
+  else {local = 'en'}
+  
+  //Stats command
   
   
   if(req.body.queryResult.intent.displayName = "stats"){
@@ -86,7 +103,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, This user isn't known yet😞 \n Something else i can do?",
+       fulfillmentText: strings.en.statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -140,7 +157,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, This user isn't known yet😞 \n Something else i can do?",
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -149,7 +166,7 @@ app.post('/webhook', (req, res) => {
               var statz = JSON.parse(body);
               
               if(!statz.stats) return res.status(200).json({
-       fulfillmentText: "Woops, This player doesn't play on this device😞 \n Something else i can do?",
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
             var stats = JSON.parse(body);  
@@ -184,7 +201,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, This player isn't known yet😞 \n Something else i can do?",
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -195,7 +212,7 @@ app.post('/webhook', (req, res) => {
               var statz = JSON.parse(body);
               
               if(!statz.stats) return res.status(200).json({
-       fulfillmentText: "Woops, This player doesn't play on this device😞 \n Something else i can do?",
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -236,7 +253,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -245,7 +262,7 @@ app.post('/webhook', (req, res) => {
               var stats = JSON.parse(body);
               
               if(!stats.stats) return res.status(200).json({
-       fulfillmentText: "Woops, Deze speler speelt niet op dit platform😞 \n Is er iets anders wat ik voor je kan doen?",
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'}); 
               
               
@@ -280,7 +297,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -290,7 +307,7 @@ app.post('/webhook', (req, res) => {
               var stats = JSON.parse(body);  
               
                          if(!stats.stats) return res.status(200).json({
-       fulfillmentText: "Woops, Deze speler speelt niet op dit platform😞 \n Is er iets anders wat ik voor je kan doen?",
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -327,7 +344,7 @@ app.post('/webhook', (req, res) => {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, Deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
+       fulfillmentText: strings[local].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -337,7 +354,7 @@ app.post('/webhook', (req, res) => {
               
               
                          if(!statz.stats) return res.status(200).json({
-       fulfillmentText: "Woops, Deze speler speelt niet op dit platform😞 \n Is er iets anders wat ik voor je kan doen?",
+       fulfillmentText: strings[local].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -376,13 +393,10 @@ let CubeResponse = require(`./commands/cube.js`);
     
     
     var finalA = '1' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
-    
-    if(country == "nl"){
-    
-  
-    console.log("Cube intent")
+
+    console.log("Cube intent" + local)
             res.status(200).json({
- "fulfillmentText": "Hier heb je de locatie van de kubus.\nIs er nog iets wat ik voor je kan doen?",
+ "fulfillmentText": strings[local].cubelocation,
     "fulfillmentMessages": [],
     "source": "Mr. Fortnite API",
     "payload": {
@@ -392,64 +406,19 @@ let CubeResponse = require(`./commands/cube.js`);
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": "Hier heb je de locatie van de kubus.\nIs er nog iets wat ik voor je kan doen?"
+                            "textToSpeech": strings[local].cubelocation,
                         }
                     },
                     {
                         "basicCard": {
-                            "title": "Kubus locatie",
+                            "title": strings[local].cubeimagetitle,
                             "image": {
                                 "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": "Kubus locatie"
+                                "accessibilityText": strings[local].cubeimagetitle
                             },
                             "buttons": [
                                 {
-                                    "title": "Credits naar fnbr.co",
-                                    "openUrlAction": {
-                                        "url": "https://fnbr.co/island"
-                                    }
-                                }
-                            ],
-                            "imageDisplayOptions": "WHITE"
-                        }
-                    }
-                ]
-            }
-        }
-    },
-    "outputContexts": [],
-    "followupEventInput": {}
-         //       
-          });
-  
-  } 
-    
-    else {
-    console.log("Cube intent")
-            res.status(200).json({
- "fulfillmentText": "Here you have the Cube location.\nIs there something else I can do for you?",
-    "fulfillmentMessages": [],
-    "source": "Mr. Fortnite API",
-    "payload": {
-        "google": {
-            "expectUserResponse": true,
-            "richResponse": {
-                "items": [
-                    {
-                        "simpleResponse": {
-                            "textToSpeech": "Here you have the Cube location.\nIs there something else I can do for you?"
-                        }
-                    },
-                    {
-                        "basicCard": {
-                            "title": "Cube location",
-                            "image": {
-                                "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": "Cube location"
-                            },
-                            "buttons": [
-                                {
-                                    "title": "Credits: fnbr.co",
+                                    "title": strings[local].cubebuttontitle,
                                     "openUrlAction": {
                                         "url": "https://fnbr.co/island"
                                     }
@@ -471,7 +440,7 @@ let CubeResponse = require(`./commands/cube.js`);
     
     }
     
-  }
+  
   
   
   function commandlogging() {
@@ -505,15 +474,9 @@ request.post(GoogleDriveFeedbackURL,
     {form:{ 'entry.180196638': intenttext, 'entry.1913027449': whatwould, 'entry.2083165757': error }}, 
     function(error, response, body){
   
-  if(country == 'nl'){
-  thxtext = "Dankjewel voor de feedback! We gaan er mee aan de slag :) \n Is er nog iets anders wat ik voor je kan doen?"
-  }
-  
-  else{
-  thxtext = "Thanks for your feedback! We are going to take a look at your submitted data :) \n Is there something else I can do for you?"}
   
       res.status(200).json({
-       fulfillmentText: thxtext,
+       fulfillmentText: strings[local].feedbackthanks,
           source: 'Mr. Fortnite backend'});
   return;
 });
@@ -2842,15 +2805,15 @@ for (i = 0; i < stats.length; i++) {
           var statseen = JSON.parse(body);
           console.log(size)
           var i;
-        for (i = 0; i < stats.data.length; i++) { 
-          var leaksarray =+ '"optionInfo": {"key": ' + stats.data[i].name + ' },' + '"Description:"' + stats.data[i].name + "," + '"image":{ "url": ' + stats.data[i].images.icon + ', "accessibilityText": ' + stats.data[i].type + " " + stats.data[i].rarity + '}, "title": "1. " ' + stats.data[i].name + ' },"';
+        for (i = 0; i < 10; i++) { 
+          var leaksarray =+ stats.data[i].name + ' },' + '"Description:"' + stats.data[i].name + "," + '"image":{ "url": ' + stats.data[i].images.icon + ', "accessibilityText": ' + stats.data[i].type + " " + stats.data[i].rarity + '}, "title": "1. " ' + stats.data[i].name + ' },"';
         console.log(leaksarray)
-         stats.data[i] = statseen[i]
+         statseen.data[i] = statseen[i]
           }
           var jsoned = JSON.serialize(statseen)
           console.log(jsoned)
           
-          if(size == 7){
+          if(size > 7){
                            
                           res.status(200).json({
 "payload": {

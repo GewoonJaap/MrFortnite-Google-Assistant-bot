@@ -45,7 +45,7 @@ app.post('/webhook', (req, res) => {
     console.log(req.body.queryResult.parameters["device"]);
     console.log(req.body.queryResult.parameters.any);
     let country = req.body.queryResult.languageCode;
-  var local = 'en'
+  var locale = 'en'
   var finalA = '#' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
   console.log(req.body.queryResult.intent.displayName);
   let intent = req.body.queryResult.intent.displayName;
@@ -53,10 +53,10 @@ app.post('/webhook', (req, res) => {
   //Set the language for the command output.
   
 if(country == 'nl'){
-local = 'nl'
+locale = 'nl'
 }
   
-  else {local = 'en'}
+  else {locale = 'en'}
   
   //Stats command
   
@@ -157,7 +157,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings[local].statsusernotfound,
+       fulfillmentText: strings[locale].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -166,7 +166,7 @@ local = 'nl'
               var statz = JSON.parse(body);
               
               if(!statz.stats) return res.status(200).json({
-       fulfillmentText: strings[local].statsdevicenotfound,
+       fulfillmentText: strings[locale].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
             var stats = JSON.parse(body);  
@@ -201,7 +201,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings[local].statsusernotfound,
+       fulfillmentText: strings[locale].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -212,7 +212,7 @@ local = 'nl'
               var statz = JSON.parse(body);
               
               if(!statz.stats) return res.status(200).json({
-       fulfillmentText: strings[local].statsdevicenotfound,
+       fulfillmentText: strings[locale].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -253,7 +253,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings[local].statsusernotfound,
+       fulfillmentText: strings[locale].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -262,7 +262,7 @@ local = 'nl'
               var stats = JSON.parse(body);
               
               if(!stats.stats) return res.status(200).json({
-       fulfillmentText: strings[local].statsdevicenotfound,
+       fulfillmentText: strings[locale].statsdevicenotfound,
           source: 'Mr. Fortnite backend'}); 
               
               
@@ -297,7 +297,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings[local].statsusernotfound,
+       fulfillmentText: strings[locale].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -307,7 +307,7 @@ local = 'nl'
               var stats = JSON.parse(body);  
               
                          if(!stats.stats) return res.status(200).json({
-       fulfillmentText: strings[local].statsdevicenotfound,
+       fulfillmentText: strings[locale].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -344,7 +344,7 @@ local = 'nl'
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: strings[local].statsusernotfound,
+       fulfillmentText: strings[locale].statsusernotfound,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -354,7 +354,7 @@ local = 'nl'
               
               
                          if(!statz.stats) return res.status(200).json({
-       fulfillmentText: strings[local].statsdevicenotfound,
+       fulfillmentText: strings[locale].statsdevicenotfound,
           source: 'Mr. Fortnite backend'});
               
               
@@ -394,9 +394,9 @@ let CubeResponse = require(`./commands/cube.js`);
     
     var finalA = '1' + ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
 
-    console.log("Cube intent" + local)
+    console.log("Cube intent" + locale)
             res.status(200).json({
- "fulfillmentText": strings[local].cubelocation,
+ "fulfillmentText": strings[locale].cubelocation,
     "fulfillmentMessages": [],
     "source": "Mr. Fortnite API",
     "payload": {
@@ -406,19 +406,19 @@ let CubeResponse = require(`./commands/cube.js`);
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": strings[local].cubelocation,
+                            "textToSpeech": strings[locale].cubelocation,
                         }
                     },
                     {
                         "basicCard": {
-                            "title": strings[local].cubeimagetitle,
+                            "title": strings[locale].cubeimagetitle,
                             "image": {
                                 "url": "https://image.fnbr.co/island.jpg?" + finalA,
-                                "accessibilityText": strings[local].cubeimagetitle
+                                "accessibilityText": strings[locale].cubeimagetitle
                             },
                             "buttons": [
                                 {
-                                    "title": strings[local].cubebuttontitle,
+                                    "title": strings[locale].cubebuttontitle,
                                     "openUrlAction": {
                                         "url": "https://fnbr.co/island"
                                     }
@@ -476,7 +476,7 @@ request.post(GoogleDriveFeedbackURL,
   
   
       res.status(200).json({
-       fulfillmentText: strings[local].feedbackthanks,
+       fulfillmentText: strings[locale].feedbackthanks,
           source: 'Mr. Fortnite backend'});
   return;
 });
@@ -514,25 +514,13 @@ request.post(GoogleDriveFeedbackURL,
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Something went wrong!!😞 \n Is there something else I can do for you?",
+       fulfillmentText: strings[locale].errorwentwrong,
           source: 'Mr. Fortnite backend'});
         
       }
                                    else { console.log('No 404'); 
-                                        
-                                                        var TenSkins;
-    var Skins;
-    
-    if (country == 'nl'){ 
-      Skins = "Hier zijn de andere items.\n Is er nog iets anders wat ik voor je kan doen?";
-    TenSkins = "Hier zijn de andere items.\n Is er nog iets anders wat ik voor je kan doen?"
-    }
-    
-    else {
-      Skins = "Here you have the other items of the shop.\n Is there anything else I can do?";
-      TenSkins = "Here you have the other items of the shop.\n Is there anything else I can do?"
-    }
-                                         
+
+                                           
                                          
         var stats = JSON.parse(body);  
               console.log (stats.length);
@@ -555,7 +543,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": TenSkins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -683,7 +671,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": TenSkins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -824,7 +812,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": TenSkins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -978,7 +966,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1099,7 +1087,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1207,7 +1195,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1304,7 +1292,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1390,7 +1378,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1466,7 +1454,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1531,7 +1519,7 @@ request.post(GoogleDriveFeedbackURL,
           {
             
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopsecondpagemessage
             }
           }
         ]
@@ -1581,14 +1569,8 @@ request.post(GoogleDriveFeedbackURL,
           }); 
                                          }
                                            
-                                           else if(items < 11){
-                                            res.status(200).json({
-       fulfillmentText: "Sorry, but the store has only 1 page of items😞! \n Is there something else I can do for you?",
-          source: 'Mr. Fortnite backend'});
-                                           }
-                                           
-                                           
-                                         
+
+                                             
                                          
                                          }
                                          
@@ -1597,7 +1579,7 @@ request.post(GoogleDriveFeedbackURL,
                                          
                                          else {
                                                  res.status(200).json({
-       fulfillmentText: "Something went wrong!!😞 \n Is there something else I can do for you?",
+       fulfillmentText: strings[locale].shopsecondpageone,
           source: 'Mr. Fortnite backend'});
                                          
                                          }
@@ -1637,28 +1619,13 @@ request.post(GoogleDriveFeedbackURL,
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Something went wrong!!😞 \n Is there something else I can do for you?",
+       fulfillmentText: strings[locale].errorwentwrong,
           source: 'Mr. Fortnite backend'});
         
       }
         
         else { console.log('No 404');
-              
 
-              
-              
-                  var TenSkins;
-    var Skins;
-    
-    if (country == 'nl'){ 
-      Skins = "Hier heb je de Fortnite shop! \n Is er nog iets anders wat ik voor je kan doen?";
-    TenSkins = "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Volgende pagina). \n Is er nog iets anders wat ik voor je kan doen?"
-    }
-    
-    else {
-      Skins = "Here you have the Fortnite shop! \n Is there anything else I can do?";
-      TenSkins = "Here are the first 10 items of the Fortnite shop. (10 is the maximum Google supports at the moment. If you want to see the other items, say: Next page). \n Is there anything else I can do?"
-    }
               
                     
           var stats = JSON.parse(body);  
@@ -1671,7 +1638,7 @@ for (i = 0; i < stats.length; i++) {
 };
               
               
-              if(items >= 10 || items == 10){
+              if(items >= 10){
                 
                                                              
               res.status(200).json({
@@ -1685,7 +1652,7 @@ for (i = 0; i < stats.length; i++) {
           {
             
             "simpleResponse": {
-              "textToSpeech": TenSkins
+              "textToSpeech": strings[locale].shopfirstpagemaxskins
             }
           }
         ]
@@ -1834,7 +1801,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopfirstpagemessage
             }
           }
         ]
@@ -1974,7 +1941,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopfirstpagemessage
             }
           }
         ]
@@ -2101,7 +2068,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopfirstpagemessage
             }
           }
         ]
@@ -2218,7 +2185,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": Skins
+              "textToSpeech": strings[locale].shopfirstpagemessage
             }
           }
         ]
@@ -2312,6 +2279,9 @@ for (i = 0; i < stats.length; i++) {
                       
                       else{
                       console.log("Te weinig items: " + items);
+        res.status(200).json({
+       fulfillmentText: strings[locale].errorwentwrong,
+          source: 'Mr. Fortnite backend'});
                       
                       }
              }

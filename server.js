@@ -2315,7 +2315,7 @@ for (i = 0; i < stats.length; i++) {
         var object = JSON.parse(body);
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, er ging iets fout!",
+       fulfillmentText: strings[locale].errorwentwrong,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -2328,13 +2328,7 @@ for (i = 0; i < stats.length; i++) {
           var stats = JSON.parse(body);  
               var items = stats.battleroyalenews.news.messages.length
               console.log(items)
-              var itemtext = "Here is the latest news \n Is there anything else I can help you with?";
-              
-              if(country == 'nl'){
-              itemtext = "Hier is het laatste nieuws \n Is er iets anders waar ik je mee kan helpen?"}
-              
-              else{
-              itemtext = "Here is the latest news \n Is there anything else I can help you with?"}
+            
               
               
               if(items == 4){
@@ -2346,7 +2340,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": itemtext
+              "textToSpeech": strings[locale].newsmessage
             }
           }
         ]
@@ -2423,7 +2417,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": itemtext
+              "textToSpeech": strings[locale].newsmessage
             }
           }
         ]
@@ -2490,7 +2484,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": itemtext
+              "textToSpeech": strings[locale].newsmessage
             }
           }
         ]
@@ -2546,7 +2540,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": itemtext
+              "textToSpeech": strings[locale].newsmessage
             }
           }
         ]
@@ -2637,7 +2631,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": itemtext
+              "textToSpeech": strings[locale].newsmessage
             }
           }
         ]
@@ -2739,14 +2733,6 @@ for (i = 0; i < stats.length; i++) {
   
   
   if(intent == "ItemLeaks"){
-  var LeaksResponseShort
-  if(country == "nl"){
-  LeaksResponseShort = "Hier heb je de laatste leaks! \n Is er nog iets anders wat ik kan doen?"
-    
-  }
-    else{
-      LeaksResponseShort = "Here you have the latest leaks! \n Is there something else I can do?"
-    }
     
               var options = {
       method: "GET",
@@ -2763,7 +2749,7 @@ for (i = 0; i < stats.length; i++) {
       {
         console.log('404')
         res.status(200).json({
-       fulfillmentText: "Woops, something went wrong!😞 \n Is there something else I can do for you?",
+       fulfillmentText: strings[locale].errorwentwrong,
           source: 'Mr. Fortnite backend'});
         
       }
@@ -2793,7 +2779,7 @@ for (i = 0; i < stats.length; i++) {
         "items": [
           {
             "simpleResponse": {
-              "textToSpeech": LeaksResponseShort
+              "textToSpeech": strings[locale].leaksmessage
             }
           }
         ]
@@ -2900,7 +2886,7 @@ for (i = 0; i < stats.length; i++) {
           else if(size > 6){
           
                   res.status(200).json({
-       fulfillmentText: "Woops, we are still optimizing this feature, be prepared! \n Is there something else I can do for you?",
+       fulfillmentText: strings[locale].comingsoonmessage,
           source: 'Mr. Fortnite backend'});
           
           }

@@ -15,7 +15,12 @@
     "shopfirstpagemaxskins": "Here are the first 10 items of the Fortnite shop. (10 is the maximum Google supports at the moment. If you want to see the other items, say: Next page). \n Is there anything else I can do?",
     "newsmessage":"Here is the latest news \n Is there anything else I can help you with?",
     "leaksmessage": "Here you have the latest leaks! \n Is there something else I can do?",
-    "comingsoonmessage": "Woops, we are still optimizing this feature, be prepared! \n Is there something else I can do for you?"
+    "comingsoonmessage": "Woops, we are still optimizing this feature, be prepared! \n Is there something else I can do for you?",
+            "facts": [
+        "A average player spends 6-10 hours a week playing Fortnite."
+    ],
+    "shoppage2notenough":"Sorry, but there are not more then 10 items in the shop!\n Is there something else I can do for you?"
+
   },
     "nl": {
     "hey": "hallo",
@@ -32,6 +37,10 @@
     "shopfirstpagemaxskins": "Hier zijn de eerste 10 items van de Fortnite shop. (10 Is het maximaal aantal plaatjes wat Google ondersteund. Als je de andere items wilt zien zeg dan: Volgende pagina). \n Is er nog iets anders wat ik voor je kan doen?",
     "newsmessage":"Hier is het laatste nieuws \n Is er iets anders waar ik je mee kan helpen?",
     "leaksmessage": "Hier heb je de laatste leaks! \n Is er nog iets anders wat ik kan doen?",
-    "comingsoonmessage": "Oeps, deze functie is nog niet bruikbaar! We zijn bezig om deze binnenkort werkend te hebben:) \n Is er nog iets anders waarmee ik je kan helpen?"
+    "comingsoonmessage": "Oeps, deze functie is nog niet bruikbaar! We zijn bezig om deze binnenkort werkend te hebben:) \n Is er nog iets anders waarmee ik je kan helpen?",
+        "facts": [
+        "Een gemiddelde speler speelt ongeveer 6-10 uur per week"
+    ],
+      "shoppage2notenough": "Sorry, maar er zitten niet meer dan 10 items in de shop!\n Is er nog iets anders waarmee ik je kan helpen?"
   }
 }

@@ -386,8 +386,7 @@ locale = 'nl'
   
   if(intent == "Cube"){
     
-let CubeResponse = require(`./commands/cube.js`);
-    CubeResponse();
+
     commandlogging();
     
     
@@ -439,6 +438,18 @@ let CubeResponse = require(`./commands/cube.js`);
     
     
     }
+  
+  if(intent == 'FunFacts'){
+  commandlogging();
+    var fact = Math.floor((Math.random() * 2));
+    console.log("Feit: " + fact)
+    console.log(strings[locale].facts[Math.floor((Math.random() * 2))])
+  
+          res.status(200).json({
+       fulfillmentText: strings[locale].facts[fact],
+          source: 'Mr. Fortnite backend'});
+    
+  }
     
   
   
@@ -485,6 +496,24 @@ request.post(GoogleDriveFeedbackURL,
   }
   
   
+  if(intent == 'Art'){
+  let ArtSource = req.body.queryResult.parameters.ArtSource
+  console.log(ArtSource)
+    
+    if(ArtSource == 'Reddit'){
+    console.log("Reddit source")
+      var ArtReddit = Math.floor((Math.random() * 2));
+    }
+    
+    else{
+    console.log("Epic Games source")
+    var ArtEpicGames = Math.floor((Math.random() * 2));
+    }
+  
+  
+  }
+  
+  
   
   
   //Shop //
@@ -527,6 +556,15 @@ request.post(GoogleDriveFeedbackURL,
               var items = stats.length;
                                          
                                          if(items => 10 || items == 10){
+                                                                 
+                      
+                      if (items <=10){
+                      console.log("Te weinig items: " + items);
+        res.status(200).json({
+       fulfillmentText: strings[locale].shoppage2notenough,
+          source: 'Mr. Fortnite backend'});
+                      
+                      }
                                            
                                            if (items == 18){
                 
@@ -2274,17 +2312,12 @@ for (i = 0; i < stats.length; i++) {
 
          //       
           });
+                
+                
                       }
-                      
-                      
-                      else{
-                      console.log("Te weinig items: " + items);
-        res.status(200).json({
-       fulfillmentText: strings[locale].errorwentwrong,
-          source: 'Mr. Fortnite backend'});
-                      
-                      }
+
              }
+                
               })
   
   

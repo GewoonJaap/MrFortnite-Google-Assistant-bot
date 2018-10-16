@@ -1,0 +1,33 @@
+{
+  "Reddit": [
+  {
+  "ArtURL": "https://mrfortnite.ml/images/Silvershot_Screenshot.png",
+  "ArtAuthor": "spoonavanilla",
+  "ArtOriginalURL": "https://www.reddit.com/r/FortNiteBR/comments/9k0to2/silvershot_screenshot/"
+  
+  },
+    
+      {
+  "ArtURL": "https://mrfortnite.ml/images/remade_a_skin_for_halloween.jpg",
+  "ArtAuthor": "sgav",
+  "ArtOriginalURL": "https://www.reddit.com/r/FortNiteBR/comments/9noex9/remade_a_skin_for_halloween/"
+  
+  }
+    
+    ],
+    "Epic Games": [
+  {
+  "ArtURL": "URLEpic",
+  "ArtAuthor": "Author",
+  "ArtOriginalURL": "Original URL"
+  
+  },
+        {
+  "ArtURL": "URLEpic1",
+  "ArtAuthor": "Author",
+  "ArtOriginalURL": "Original URL"
+  
+  }
+    ]
+
+}

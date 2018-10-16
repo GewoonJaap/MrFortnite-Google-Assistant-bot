@@ -18,6 +18,7 @@ var admin = require('firebase-admin');
 //Locals
 
 var strings = require('./strings.json');
+var ArtInformation = require('./art.json');
 console.log(strings.en.hey + ' ' + strings.nl.hey);
 
 // The Fortnite API key is written in a protected file that you can't access, request a key at: https://fortnitetracker.com/site-api
@@ -497,18 +498,57 @@ request.post(GoogleDriveFeedbackURL,
   
   
   if(intent == 'Art'){
+  
   let ArtSource = req.body.queryResult.parameters.ArtSource
   console.log(ArtSource)
     
-    if(ArtSource == 'Reddit'){
-    console.log("Reddit source")
-      var ArtReddit = Math.floor((Math.random() * 2));
-    }
-    
-    else{
-    console.log("Epic Games source")
-    var ArtEpicGames = Math.floor((Math.random() * 2));
-    }
+
+      var ArtSize = Math.floor((Math.random() * ArtInformation[ArtSource].length));
+    console.log(ArtSize);
+      console.log(ArtInformation[ArtSource][ArtSize].ArtURL);
+    console.log(ArtInformation[ArtSource][ArtSize].ArtAuthor);
+    console.log(ArtInformation[ArtSource][ArtSize].ArtOriginalURL);
+
+ res.status(200).json({
+ "fulfillmentText": ArtSource + strings[locale].ArtTitle + ArtInformation[ArtSource][ArtSize].ArtAuthor,
+    "fulfillmentMessages": [],
+    "source": "Mr. Fortnite API",
+    "payload": {
+        "google": {
+            "expectUserResponse": true,
+            "richResponse": {
+                "items": [
+                    {
+                        "simpleResponse": {
+                            "textToSpeech": ArtSource + strings[locale].ArtText + ArtInformation[ArtSource][ArtSize].ArtAuthor,
+                        }
+                    },
+                    {
+                        "basicCard": {
+                            "title": ArtSource + strings[locale].ArtTitle,
+                            "image": {
+                                "url": ArtInformation[ArtSource][ArtSize].ArtURL,
+                                "accessibilityText": ArtSource + strings[locale].ArtTitle
+                            },
+                            "buttons": [
+                                {
+                                    "title": strings[locale].ArtButton,
+                                    "openUrlAction": {
+                                        "url": ArtInformation[ArtSource][ArtSize].ArtOriginalURL
+                                    }
+                                }
+                            ],
+                            "imageDisplayOptions": "WHITE"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "outputContexts": [],
+    "followupEventInput": {}
+         //       
+          });
   
   
   }

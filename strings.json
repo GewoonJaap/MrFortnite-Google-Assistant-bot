@@ -19,7 +19,10 @@
             "facts": [
         "A average player spends 6-10 hours a week playing Fortnite."
     ],
-    "shoppage2notenough":"Sorry, but there are not more then 10 items in the shop!\n Is there something else I can do for you?"
+    "shoppage2notenough":"Sorry, but there are not more then 10 items in the shop!\n Is there something else I can do for you?",
+    "ArtText": " Art from: ",
+    "ArtTitle": " art",
+    "ArtButton": "Official Art link"
 
   },
     "nl": {
@@ -41,6 +44,9 @@
         "facts": [
         "Een gemiddelde speler speelt ongeveer 6-10 uur per week"
     ],
-      "shoppage2notenough": "Sorry, maar er zitten niet meer dan 10 items in de shop!\n Is er nog iets anders waarmee ik je kan helpen?"
+      "shoppage2notenough": "Sorry, maar er zitten niet meer dan 10 items in de shop!\n Is er nog iets anders waarmee ik je kan helpen?",
+      "ArtText": " Foto van: ",
+      "ArtTitle": " foto",
+      "ArtButton": "Officiele link naar de foto"
   }
 }

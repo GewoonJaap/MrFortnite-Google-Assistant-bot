@@ -501,7 +501,7 @@ request.post(GoogleDriveFeedbackURL,
   
   let ArtSource = req.body.queryResult.parameters.ArtSource
   console.log(ArtSource)
-    
+    commandlogging();
 
       var ArtSize = Math.floor((Math.random() * ArtInformation[ArtSource].length));
     console.log(ArtSize);
@@ -520,7 +520,7 @@ request.post(GoogleDriveFeedbackURL,
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": ArtSource + strings[locale].ArtText + ArtInformation[ArtSource][ArtSize].ArtAuthor,
+                            "textToSpeech": ArtSource + strings[locale].ArtText + ArtInformation[ArtSource][ArtSize].ArtAuthor + strings[locale].ArtMessage,
                         }
                     },
                     {

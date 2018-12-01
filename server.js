@@ -413,7 +413,7 @@ locale = 'nl'
                         "basicCard": {
                             "title": strings[locale].cubeimagetitle,
                             "image": {
-                                "url": "https://image.fnbr.co/island.jpg?" + finalA,
+                                "url": "https://mrfortnite.ml/images/Lootlake.jpg",
                                 "accessibilityText": strings[locale].cubeimagetitle
                             },
                             "buttons": [
@@ -501,7 +501,7 @@ request.post(GoogleDriveFeedbackURL,
   
   let ArtSource = req.body.queryResult.parameters.ArtSource
   console.log(ArtSource)
-    
+    commandlogging();
 
       var ArtSize = Math.floor((Math.random() * ArtInformation[ArtSource].length));
     console.log(ArtSize);
@@ -520,7 +520,7 @@ request.post(GoogleDriveFeedbackURL,
                 "items": [
                     {
                         "simpleResponse": {
-                            "textToSpeech": ArtSource + strings[locale].ArtText + ArtInformation[ArtSource][ArtSize].ArtAuthor,
+                            "textToSpeech": ArtSource + strings[locale].ArtText + ArtInformation[ArtSource][ArtSize].ArtAuthor + strings[locale].ArtMessage,
                         }
                     },
                     {

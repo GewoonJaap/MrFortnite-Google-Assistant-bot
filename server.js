@@ -413,7 +413,7 @@ locale = 'nl'
                         "basicCard": {
                             "title": strings[locale].cubeimagetitle,
                             "image": {
-                                "url": "https://image.fnbr.co/island.jpg?" + finalA,
+                                "url": "https://mrfortnite.ml/images/Lootlake.jpg",
                                 "accessibilityText": strings[locale].cubeimagetitle
                             },
                             "buttons": [

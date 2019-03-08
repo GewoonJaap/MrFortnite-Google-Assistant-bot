@@ -4,7 +4,7 @@
     "hey": "hey there",
     "statsusernotfound": "Woops, This user isn't known yet😞 \n Something else i can do?",
     "statsdevicenotfound": "Woops, This player doesn't play on this device😞 \n Something else i can do?",
-    "cubelocation": "Here you have the Cube location.\nIs there something else I can do for you?",
+    "cubelocation": "The cube is no longer in game ;/ .\nIs there something else I can do for you?",
     "cubeimagetitle": "Cube location",
     "cubebuttontitle": "Credits: fnbr.co",
     "feedbackthanks": "Thanks for your feedback! We are going to take a look at your submitted data :) \n Is there something else I can do for you?",
@@ -23,14 +23,15 @@
     "ArtText": " Art from: ",
     "ArtTitle": " art",
     "ArtButton": "Official Art link",
-    "ArtMessage": " \n Is there something else I can do for you?"
+    "ArtMessage": " \n Is there something else I can do for you?",
+    "AnythingElse": " \n Is there something else I can do for you?"
 
   },
     "nl": {
     "hey": "hallo",
     "statsusernotfound": "Woops, deze speler is nog niet bekend😞 \n Is er iets anders wat ik voor je kan doen?",
     "statsdevicenotfound": "Woops, deze speler speelt niet op dit apparaat😞 \n Is er iets anders wat ik voor je kan doen?",
-    "cubelocation": "Hier heb je de locatie van de kubus.\nIs er nog iets wat ik voor je kan doen?" ,
+    "cubelocation": "De kubus zit niet langer meer in het spel ;/. \nIs er nog iets wat ik voor je kan doen?" ,
     "cubeimagetitle": "Cube locatie",
     "cubebuttontitle": "Credits: fnbr.co",
     "feedbackthanks": "Dankjewel voor de feedback! We gaan er mee aan de slag :) \n Is er nog iets anders wat ik voor je kan doen?",
@@ -49,6 +50,7 @@
       "ArtText": " Foto van: ",
       "ArtTitle": " foto",
       "ArtButton": "Officiele link naar de foto",
-      "ArtMessage": " \n Is er nog iets anders wat ik voor je kan doen?"
+      "ArtMessage": " \n Is er nog iets anders wat ik voor je kan doen?",
+      "AnythingElse": " \n Is er nog iets anders wat ik voor je kan doen?"
   }
 }
